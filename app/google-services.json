@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "545717386554",
+    "firebase_url": "https://mobyardandroid-default-rtdb.firebaseio.com",
+    "project_id": "mobyardandroid",
+    "storage_bucket": "mobyardandroid.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:545717386554:android:205312a7af925ce9076403",
+        "android_client_info": {
+          "package_name": "com.example.mobyardandroid"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "545717386554-hja5ll4findme9c3lgldggu9o0fte2aq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyChG9u0Xg3Vpn_RIQY_16YomQqUvVR5Ggs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "545717386554-hja5ll4findme9c3lgldggu9o0fte2aq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

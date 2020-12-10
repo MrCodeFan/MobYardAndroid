@@ -1,0 +1,40 @@
+<resources>
+    <string name="app_name">Mobile Yard</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">First and Last Name</string>
+    <string name="nav_header_subtitle">account@mail.com</string>
+
+    <string name="nav_title_name">-Studio</string>
+    <string name="nav_subtitle_mail">-@android.com</string>
+
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+    <string name="menu_logout">Logout</string>
+
+    <string name="title_activity_yard">FullscreenActivity</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+
+    <!-- First Load Page -->
+    <string name="slogan">Powered by CatX</string>
+    <string name="powered_by">Powered by CatX</string>
+
+    <!-- Onboarding Page -->
+    <string name="let_get_started">Let get Started</string>
+    <string name="next">Next</string>
+    <string name="skip_btn">Skip</string>
+
+    <string name="first_slide_title">first_slide_title</string>
+    <string name="second_slide_title">second_slide_title</string>
+    <string name="third_slide_title">third_slide_title</string>
+
+    <string name="first_slide_desc">first_slide_desc</string>
+    <string name="second_slide_desc">second_slide_desc</string>
+    <string name="third_slide_desc">third_slide_desc</string>
+
+</resources>
