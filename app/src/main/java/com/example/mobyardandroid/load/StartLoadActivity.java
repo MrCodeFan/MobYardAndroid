@@ -53,7 +53,7 @@ public class StartLoadActivity extends AppCompatActivity {
             @Override
             public void run() {
 
-                Intent intent = new Intent(StartLoadActivity.this, OnboardingActivity.class);
+                Intent intent = new Intent(StartLoadActivity.this, StartActivity.class);
                 startActivity(intent);
                 finish();
             }

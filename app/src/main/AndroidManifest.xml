@@ -10,18 +10,17 @@
         android:supportsRtl="true"
         android:theme="@style/MobYardTheme">
         <activity android:name=".user.UserDashboardActivity"></activity>
-        <activity android:name=".yard.MainYardActivity">
+        <activity android:name=".yard.MainYardActivity"></activity>
+        <activity android:name=".load.OnboardingActivity" /><activity
+            android:name=".MainActivity"
+            android:theme="@style/Theme.AppCompat.Light" />
+        <activity android:name=".load.StartLoadActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".load.OnboardingActivity" />
-        <activity
-            android:name=".MainActivity"
-            android:theme="@style/Theme.AppCompat.Light" />
-        <activity android:name=".load.StartLoadActivity"></activity>
         <activity
             android:name=".auth.StartActivity"
             android:theme="@style/Theme.AppCompat.Light" />

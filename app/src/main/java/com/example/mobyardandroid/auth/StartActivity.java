@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.example.mobyardandroid.MainActivity;
+import com.example.mobyardandroid.user.UserDashboardActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
@@ -59,7 +60,7 @@ public class StartActivity extends AppCompatActivity {
             ).show();
             */
             
-            Intent intent = new Intent(StartActivity.this, MainActivity.class);
+            Intent intent = new Intent(StartActivity.this, UserDashboardActivity.class);
             startActivity(intent);
             finish();
         }

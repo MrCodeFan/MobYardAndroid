@@ -39,8 +39,13 @@
     <string name="third_slide_desc">third_slide_desc</string>
 
     <!-- User Dashboard -->
-    <string name="user_dashboard_header">User Dashboard</string>
-    <string name="user_dashboard_search">User Dashboard</string>
+    <string name="user_dashboard_header">Mobile Yard</string>
+    <string name="user_dashboard_search">Search...</string>
+
+    <!-- User Dashboard Yards -->
+    <string name="yards_name">Yard Name</string>
+    <string name="yards_title">Yard Title</string>
+    <string name="yards_id">Yard ID</string>
 
 
 </resources>

@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.example.mobyardandroid.user.UserDashboardActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -123,7 +124,7 @@ public class RegisterActivity extends AppCompatActivity {
                                         editor.putString("Lastname", txt_lastname );
 
 
-                                        Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
+                                        Intent intent = new Intent(RegisterActivity.this, UserDashboardActivity.class);
                                         startActivity(intent);
                                         finish();
                                     }
