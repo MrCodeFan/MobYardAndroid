@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group
+        android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/nav_home"
+            android:title="@string/nav_home"
+            android:icon="@drawable/home_icon"/>
+        <item
+            android:id="@+id/nav_add"
+            android:title="@string/nav_add"
+            android:icon="@drawable/add_icon"/>
+        <item
+            android:id="@+id/nav_search"
+            android:title="@string/nav_search"
+            android:icon="@drawable/search_icon"/>
+    </group>
+
+    <item android:title="Profile">
+        <menu>
+            <group
+                android:checkableBehavior="single">
+
+                <item
+                    android:id="@+id/nav_login"
+                    android:title="@string/nav_login"
+                    android:icon="@drawable/add_icon"/>
+                <item
+                    android:id="@+id/nav_profile"
+                    android:title="@string/nav_profile"
+                    android:icon="@drawable/acc_icon"/>
+                <item
+                    android:id="@+id/nav_logout"
+                    android:title="@string/nav_logout"
+                    android:icon="@drawable/add_icon"/>
+            </group>
+        </menu>
+    </item>
+
+    <item android:title="Feedback">
+        <menu>
+            <group
+                android:checkableBehavior="single">
+
+                <item
+                    android:id="@+id/nav_inv"
+                    android:title="@string/nav_inv"
+                    android:icon="@drawable/share_icon"/>
+                <item
+                    android:id="@+id/nav_rep"
+                    android:title="@string/nav_rep"
+                    android:icon="@drawable/report_icon"/>
+                <item
+                    android:id="@+id/nav_faq"
+                    android:title="@string/nav_faq"
+                    android:icon="@drawable/info_icon"/>
+            </group>
+        </menu>
+    </item>
+</menu>

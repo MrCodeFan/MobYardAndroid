@@ -48,5 +48,19 @@
     <string name="yards_desc">Yard Desc</string>
     <string name="yards_id">Yard ID</string>
 
+    <!-- Navigation Menu -->
+    <string name="nav_home">Home</string>
+    <string name="nav_add">Add Yard</string>
+    <string name="nav_search">Search</string>
+
+    <string name="nav_login">Login</string>
+    <string name="nav_logout">Logout</string>
+    <string name="nav_profile">Profile</string>
+
+    <string name="nav_inv">Share with friends</string>
+    <string name="nav_rep">Report</string>
+    <string name="nav_faq">FAQ</string>
+
+
 
 </resources>

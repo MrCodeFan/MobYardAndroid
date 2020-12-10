@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="200dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="20dp"
+    android:background="@color/nav_header_background">
+
+    <TextView
+        android:id="@+id/account_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:textSize="20dp"
+        android:layout_marginBottom="20dp"
+        android:text="Mobile Yard"
+
+        android:layout_above="@+id/account_mail"
+
+        />
+
+    <TextView
+        android:id="@+id/account_mail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="mob.yard.android@mail.com"
+        android:layout_alignParentBottom="true"
+        android:textSize="12dp"
+        />
+
+    <ImageView
+        android:id="@+id/account_pic"
+        android:padding="10dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_above="@+id/account_name"
+        android:src="@drawable/account_pic"/>
+
+
+</RelativeLayout>
