@@ -2,32 +2,21 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mainlayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
-    android:orientation="horizontal">
-
-    <ScrollView
-        android:id="@+id/scrollView2"
-        android:layout_width="136dp"
-        android:layout_height="416dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical" />
-    </ScrollView>
+    android:orientation="horizontal"
+    tools:context=".MainActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layoutyard"
         android:layout_width="611dp"
         android:layout_height="412dp"
+        android:layout_marginStart="120dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/scrollView2"
+
+
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
@@ -43,4 +32,78 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <ScrollView
+            android:id="@+id/scrollView2"
+            android:layout_width="136dp"
+            android:layout_height="416dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <LinearLayout
+                android:id="@+id/linearlayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingBottom="70dp">
+
+                <ImageView
+                    android:id="@+id/imagealcove"
+                    android:layout_width="122dp"
+                    android:layout_height="85dp"
+                    app:srcCompat="@drawable/alcove" />
+
+                <ImageView
+                    android:id="@+id/imageBench"
+                    android:layout_width="120dp"
+                    android:layout_height="84dp"
+                    app:srcCompat="@drawable/bench" />
+
+                <ImageView
+                    android:id="@+id/imageTree1"
+                    android:layout_width="126dp"
+                    android:layout_height="84dp"
+                    app:srcCompat="@drawable/trees2" />
+
+                <ImageView
+                    android:id="@+id/football"
+                    android:layout_width="125dp"
+                    android:layout_height="93dp"
+                    app:srcCompat="@drawable/football" />
+
+                <ImageView
+                    android:id="@+id/imageslide"
+                    android:layout_width="123dp"
+                    android:layout_height="125dp"
+                    app:srcCompat="@drawable/slide" />
+
+                <ImageView
+                    android:id="@+id/bycycleparking"
+                    android:layout_width="119dp"
+                    android:layout_height="76dp"
+                    app:srcCompat="@drawable/bycycleparking" />
+
+                <ImageView
+                    android:id="@+id/flowerbed2"
+                    android:layout_width="122dp"
+                    android:layout_height="87dp"
+                    app:srcCompat="@drawable/flowerbed2" />
+
+                <ImageView
+                    android:id="@+id/flowerbed"
+                    android:layout_width="117dp"
+                    android:layout_height="87dp"
+                    app:srcCompat="@drawable/flowerbad" />
+
+                <ImageView
+                    android:id="@+id/flowerbed3"
+                    android:layout_width="116dp"
+                    android:layout_height="84dp"
+                    app:srcCompat="@drawable/flowerbed3" />
+
+            </LinearLayout>
+        </ScrollView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
