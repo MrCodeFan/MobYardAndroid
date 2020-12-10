@@ -9,10 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/MobYardTheme">
-        <activity android:name=".load.OnboardingActivity"></activity>
+        <activity android:name=".yard.MainYardActivity"></activity>
+        <activity android:name=".load.OnboardingActivity" />
         <activity
             android:name=".MainActivity"
-            android:theme="@style/Theme.AppCompat.Light"></activity>
+            android:theme="@style/Theme.AppCompat.Light" />
         <activity android:name=".load.StartLoadActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -22,7 +23,7 @@
         </activity>
         <activity
             android:name=".auth.StartActivity"
-            android:theme="@style/Theme.AppCompat.Light"></activity>
+            android:theme="@style/Theme.AppCompat.Light" />
         <activity
             android:name=".auth.RegisterActivity"
             android:theme="@style/Theme.AppCompat.Light" />
