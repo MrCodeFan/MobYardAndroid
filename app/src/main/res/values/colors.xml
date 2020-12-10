@@ -27,6 +27,7 @@
 
 
     <color name="home_background">#fef8d8</color>
+    <color name="banner_yard_background">#fef8d0</color>
     <color name="add_background">#ffede0</color>
     <color name="banner_background">#f9f9f9</color>
 

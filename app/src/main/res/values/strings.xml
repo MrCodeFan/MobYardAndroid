@@ -45,6 +45,7 @@
     <!-- User Dashboard Yards -->
     <string name="yards_name">Yard Name</string>
     <string name="yards_title">Yard Title</string>
+    <string name="yards_desc">Yard Desc</string>
     <string name="yards_id">Yard ID</string>
 
 
