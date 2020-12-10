@@ -25,4 +25,9 @@
     <color name="lightWhite">#fece2f</color>
     <color name="lightWhite2">#fef8d8</color>
 
+
+    <color name="home_background">#fef8d8</color>
+    <color name="add_background">#ffede0</color>
+    <color name="banner_background">#f9f9f9</color>
+
 </resources>
