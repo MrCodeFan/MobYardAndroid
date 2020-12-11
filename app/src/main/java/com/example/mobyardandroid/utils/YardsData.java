@@ -10,7 +10,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public class YardsData {
-    ArrayList<Yards> yardsArrayList;
+    /*ArrayList<Yards> yardsArrayList;
     List<Yards> yardsList;
 
     String appDirYards;
@@ -61,7 +61,7 @@ public class YardsData {
 
         return yard;
     }
-
+*/
 
 
 }
