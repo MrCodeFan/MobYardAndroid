@@ -1,9 +1,6 @@
+<!-- https://github.com/MrCodeFan/MobYardAndroid -->
 <resources>
     <string name="app_name">Mobile Yard</string>
-    <string name="navigation_drawer_open">Open navigation drawer</string>
-    <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="nav_header_title">First and Last Name</string>
-    <string name="nav_header_subtitle">account@mail.com</string>
 
     <string name="nav_title_name">-Studio</string>
     <string name="nav_subtitle_mail">-@android.com</string>
@@ -19,6 +16,13 @@
     <string name="title_activity_yard">FullscreenActivity</string>
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
+
+    <!-- Login And Reg -->
+    <string name="entry_header">Entry</string>
+    <string name="entry_desc">Entry</string>
+    <string name="entry_or">-- or --</string>
+    <string name="entry_login">Login</string>
+    <string name="entry_reg">Register</string>
 
     <!-- First Load Page -->
     <string name="slogan">Make you yard comfortable</string>

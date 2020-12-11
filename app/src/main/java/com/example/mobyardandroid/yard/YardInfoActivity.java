@@ -45,8 +45,10 @@ public class YardInfoActivity extends AppCompatActivity {
         goToEdit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(YardInfoActivity.this, MainYardActivity.class));
-
+                startActivity(new Intent(
+                        YardInfoActivity.this,
+                        MainYardActivity.class
+                ));
                 finish();
             }
         });

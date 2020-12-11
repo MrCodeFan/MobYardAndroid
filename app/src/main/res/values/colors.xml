@@ -53,7 +53,17 @@
     <color name="mainLightGreen">#a7dc6c</color>
     <color name="mainDarkGreen">#5e9d2d</color>
 
+    <!-- Not used -->
+    <color name="mainLightBlue">#b6dff8</color>
 
+    <color name="mainDarkDarkGreen">#438432</color>
+
+    <color name="mainBrown">#936638</color>
+    <color name="mainDarkBrown">#714a24</color>
+    <color name="mainLightBrown">#f28f60</color>
+
+    <color name="mainYellow">#f5ec72</color>
+    <color name="LightYellow">#fcf3a2</color>
 
 
 </resources>

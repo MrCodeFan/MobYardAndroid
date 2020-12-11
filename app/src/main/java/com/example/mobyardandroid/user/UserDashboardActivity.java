@@ -18,6 +18,10 @@ import android.widget.LinearLayout;
 
 import com.example.mobyardandroid.R;
 import com.example.mobyardandroid.auth.StartActivity;
+import com.example.mobyardandroid.yard.CreateYardActivity;
+import com.example.mobyardandroid.yard.MainYardActivity;
+import com.example.mobyardandroid.yard.YardInfoActivity;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 
@@ -36,7 +40,7 @@ public class UserDashboardActivity extends AppCompatActivity
     // Drawer Menu
     DrawerLayout drawerLayout;
     NavigationView navigationView;
-    ImageView menuIcon;
+    ImageView menuIcon, addIcon;
     LinearLayout contentView;
     static final float END_SCALE = 0.7f;
 
@@ -55,7 +59,7 @@ public class UserDashboardActivity extends AppCompatActivity
                 MODE_PRIVATE
         );
 
-        email = PersPrefs.getString("mail", "");
+        email = PersPrefs.getString("mail", "mail.com");
         userId = PersPrefs.getString("id", "");
         username = PersPrefs.getString("username", "");
         lastName = PersPrefs.getString("Lastname", "");
@@ -64,6 +68,7 @@ public class UserDashboardActivity extends AppCompatActivity
         // Hooks
         recyclerYards = findViewById(R.id.recycler_yards);
         menuIcon = findViewById(R.id.menu_icon);
+        addIcon = findViewById(R.id.add_icon);
         contentView = findViewById(R.id.content);
 
         // Menu Hooks
@@ -72,8 +77,25 @@ public class UserDashboardActivity extends AppCompatActivity
 
         navigationDrawer();
 
+        addIcon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(
+                        UserDashboardActivity.this,
+                        CreateYardActivity.class
+                ));
+            }
+        });
 
-        recyclerYards();
+        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+
+                return false;
+            }
+        });
+
+
     }
 
 
@@ -100,6 +122,8 @@ public class UserDashboardActivity extends AppCompatActivity
     }
 
     private void animateNavigationDrawer() {
+        // This code not our (CatX)
+        // We took this code from one tutorial
         drawerLayout.setScrimColor(getResources().getColor(R.color.add_background));
         drawerLayout.addDrawerListener(new DrawerLayout.SimpleDrawerListener() {
             @Override
@@ -130,6 +154,7 @@ public class UserDashboardActivity extends AppCompatActivity
     }
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+
         return true;
     }
 
@@ -141,6 +166,9 @@ public class UserDashboardActivity extends AppCompatActivity
                 "YardsData",
                 MODE_PRIVATE
         );
+
+
+        recyclerYards();
 
 
     }
