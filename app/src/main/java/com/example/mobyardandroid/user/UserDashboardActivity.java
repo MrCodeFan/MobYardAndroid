@@ -27,7 +27,7 @@ public class UserDashboardActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     // User`s data
-    SharedPreferences YardsPrefs, PersPrefs;
+    SharedPreferences YardsPrefs, PersPrefs, YardInfoPrefs;
     String email, userId, username, lastName, firstName;
 
     RecyclerView recyclerYards;
@@ -172,6 +172,17 @@ public class UserDashboardActivity extends AppCompatActivity
 
         recyclerYards.setAdapter(adapter);
 
+    }
+
+    private void editYardInfoPref(String yardId){
+        YardInfoPrefs = getSharedPreferences(
+                "YardInfoActivity",
+                MODE_PRIVATE
+        );
+
+        SharedPreferences.Editor editor = YardInfoPrefs.edit();
+        editor.putString("yard_id", yardId );
+        
     }
 
 }

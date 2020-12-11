@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/MobYardTheme">
-        <activity android:name=".yard.CreateYardActivity"></activity>
+        <activity android:name=".yard.YardInfoActivity"></activity>
+        <activity android:name=".yard.CreateYardActivity" />
         <activity android:name=".user.UserDashboardActivity" />
         <activity android:name=".yard.MainYardActivity" />
         <activity android:name=".load.OnboardingActivity" />

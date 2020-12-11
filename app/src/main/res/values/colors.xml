@@ -23,15 +23,37 @@
     <color name="start_load_activity">#fece2f</color>
 
     <color name="lightWhite">#fece2f</color>
-    <color name="lightWhite2">#fef8d8</color>
 
-
-    <color name="home_background">#fef8d8</color>
+    <!--
+    <color name="home_background">#fef8d8</color> - mainLightMilk
+    -->
     <color name="banner_yard_background">#fef8d0</color>
     <color name="add_background">#ffede0</color>
     <color name="banner_background">#f9f9f9</color>
 
-    <color name="nav_background">#fef8d8</color>
-    <color name="nav_header_background">#fedbd8</color>
+    <!--
+    <color name="nav_background">#fef8d8</color> - mainLightMilk
+    <color name="nav_header_background">#fedbd8</color> - mainLightPink
+    -->
+
+    <!-- Main App Colours -->
+    <color name="mainLightMilk">#fef8d8</color>
+    <color name="mainDarkMilk">#ffd7a7</color>
+    <color name="mainLightLightMilk">#fedbd8</color>
+
+    <color name="mainLightPink">#ffd7a7</color>
+
+    <color name="mainLightRed">#ff6d7b</color>
+    <color name="mainRed">#fe4e60</color>
+    <color name="mainDarkRed">#e94656</color>
+
+    <color name="mainDarkGray">#40414c</color>
+    <color name="mainGray">#4c4d59</color>
+
+    <color name="mainLightGreen">#a7dc6c</color>
+    <color name="mainDarkGreen">#5e9d2d</color>
+
+
+
 
 </resources>

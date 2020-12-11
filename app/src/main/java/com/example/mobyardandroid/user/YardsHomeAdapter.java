@@ -47,6 +47,7 @@ public class YardsHomeAdapter extends
         holder.desc.setText(yardsHomeAdapter.getDescription());
         holder.title.setText(yardsHomeAdapter.getTitle());
         holder.id.setText(yardsHomeAdapter.getId());
+        holder.num.setText(yardsHomeAdapter.getCardNumStr());
     }
 
     @Override
@@ -57,7 +58,7 @@ public class YardsHomeAdapter extends
     public static class YardsHomeViewHolder extends RecyclerView.ViewHolder{
 
         ImageView image;
-        TextView title, desc, id;
+        TextView title, desc, id, num;
 
         public YardsHomeViewHolder(@NonNull View itemView){
             super(itemView);
@@ -67,6 +68,7 @@ public class YardsHomeAdapter extends
             id = itemView.findViewById(R.id.yard_id);
             desc = itemView.findViewById(R.id.yard_desc);
             title = itemView.findViewById(R.id.yard_heading);
+            num = itemView.findViewById(R.id.yard_num);
         }
     }
 

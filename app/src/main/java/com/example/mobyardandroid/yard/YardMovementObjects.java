@@ -10,7 +10,7 @@ import android.widget.RelativeLayout;
 
 import com.example.mobyardandroid.R;
 
-public class YardMOvementObjects extends Activity implements View.OnTouchListener {
+public class YardMovementObjects extends Activity implements View.OnTouchListener {
     private ImageView bench;
     private ViewGroup mMoveLayout;
     private int mX;

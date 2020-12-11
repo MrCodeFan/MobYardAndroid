@@ -61,5 +61,8 @@
     <string name="nav_rep">Report</string>
     <string name="nav_faq">FAQ</string>
 
+    <!-- Yard Menu -->
+    <string name="yard_info_header">Yard Info</string>
+
 
 </resources>

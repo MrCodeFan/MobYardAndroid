@@ -13,7 +13,7 @@
         android:id="@+id/nav_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/nav_background"
+        android:background="@color/mainLightMilk"
         android:theme="@style/navigationTheme"
         android:layout_gravity="start"
         app:headerLayout="@layout/menu_header"
@@ -26,7 +26,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:background="@color/home_background">
+        android:background="@color/mainLightMilk">
         <RelativeLayout
 
             android:layout_width="match_parent"

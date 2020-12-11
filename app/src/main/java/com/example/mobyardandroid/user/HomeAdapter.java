@@ -2,7 +2,7 @@ package com.example.mobyardandroid.user;
 
 public class HomeAdapter {
     int image, cardNum;
-    String title, id, description;
+    String title, id, description, cardNumStr;
 
     public HomeAdapter(int image, String title, String id, String description, int cardNum) {
         this.image = image;
@@ -10,6 +10,7 @@ public class HomeAdapter {
         this.id = id;
         this.description = description;
         this.cardNum = cardNum;
+        this.cardNumStr = String.valueOf(cardNum);
     }
 
     public int getImage() {
@@ -30,5 +31,9 @@ public class HomeAdapter {
 
     public int getCardNum() {
         return cardNum;
+    }
+
+    public String getCardNumStr() {
+        return cardNumStr;
     }
 }
