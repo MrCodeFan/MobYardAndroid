@@ -30,12 +30,12 @@
     <string name="skip_btn">Skip</string>
 
     <!-- Onboarding Page -->
-    <string name="first_slide_title">first_slide_title</string>
-    <string name="second_slide_title">second_slide_title</string>
+    <string name="first_slide_title">Mobility and Convenience</string>
+    <string name="second_slide_title">Creativity</string>
     <string name="third_slide_title">third_slide_title</string>
 
-    <string name="first_slide_desc">first_slide_desc</string>
-    <string name="second_slide_desc">second_slide_desc</string>
+    <string name="first_slide_desc">Create a yard project right on your phone!</string>
+    <string name="second_slide_desc">Choose from a wide variety of elements to create your perfect yard</string>
     <string name="third_slide_desc">third_slide_desc</string>
 
     <!-- User Dashboard -->
@@ -63,6 +63,7 @@
 
     <!-- Yard Menu -->
     <string name="yard_info_header">Yard Info</string>
+    <string name="yard_info_button">Go to Edit</string>
 
 
 </resources>

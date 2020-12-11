@@ -5,7 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".yard.YardInfoActivity"
-    android:orientation="horizontal">
+    android:orientation="vertical"
+    android:background="@color/mainLightMilk"
+    >
 
     <RelativeLayout
 
@@ -31,50 +33,6 @@
 
     </RelativeLayout>
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-
-        >
-
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-
-            android:layout_below="@+id/dashboard_header"
-            android:background="@color/white"
-            android:layout_marginLeft="40dp"
-            android:layout_marginRight="40dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="20dp"
-            android:elevation="8dp"
-
-            >
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/user_dashboard_search"
-                android:layout_centerVertical="true"
-                android:layout_marginLeft="15dp"
-                />
-
-            <ImageView
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
-                android:layout_marginRight="15dp"
-                android:src="@drawable/search_icon"
-
-                />
-
-
-
-        </RelativeLayout>
-    </RelativeLayout>
-
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -83,25 +41,31 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:paddingTop="30dp">
+            android:paddingTop="20dp"
+            android:padding="20dp">
 
 
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:background="@color/banner_yard_background">
+                android:layout_marginTop="20dp">
 
                 <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/recycler_yards"
+                    android:id="@+id/recycler_images_yards"
                     android:layout_width="match_parent"
-                    android:layout_height="450dp">
+                    android:layout_height="250dp"
+                    android:layout_toRightOf="@+id/info_edit_btn">
 
                 </androidx.recyclerview.widget.RecyclerView>
+
+                <Button
+                    android:id="@+id/info_edit_btn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/yard_info_button"
+                    android:background="@color/mainLightPink"
+                    />
             </RelativeLayout>
-
-
-
 
         </LinearLayout>
 

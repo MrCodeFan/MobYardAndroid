@@ -18,8 +18,6 @@ public class MainYardActivity extends AppCompatActivity {
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
 
 
-
-
     }
 
 }

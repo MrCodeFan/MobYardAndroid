@@ -1,15 +1,19 @@
 package com.example.mobyardandroid.user;
 
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.mobyardandroid.R;
+import com.example.mobyardandroid.yard.YardInfoActivity;
 
 import java.util.ArrayList;
 
@@ -17,9 +21,11 @@ public class YardsHomeAdapter extends
         RecyclerView.Adapter<YardsHomeAdapter.YardsHomeViewHolder> {
 
     ArrayList<HomeAdapter> homeAdapters;
+    public SharedPreferences infoPref;
 
-    public YardsHomeAdapter(ArrayList<HomeAdapter> homeAdapters) {
+    public YardsHomeAdapter(ArrayList<HomeAdapter> homeAdapters, SharedPreferences infoPref) {
         this.homeAdapters = homeAdapters;
+        this.infoPref = infoPref;
     }
 
 
@@ -48,6 +54,29 @@ public class YardsHomeAdapter extends
         holder.title.setText(yardsHomeAdapter.getTitle());
         holder.id.setText(yardsHomeAdapter.getId());
         holder.num.setText(yardsHomeAdapter.getCardNumStr());
+
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+
+                SharedPreferences.Editor editor = infoPref.edit();
+                editor.putString("yard_id", yardsHomeAdapter.getId() );
+
+                Toast.makeText(
+                        v.getContext(),
+                        "You clicked at " + yardsHomeAdapter.getTitle() + yardsHomeAdapter.getCardNumStr(),
+                        Toast.LENGTH_SHORT
+                ).show();
+
+
+                Intent intent = new Intent(v.getContext(), YardInfoActivity.class);
+                v.getContext().startActivity(intent);
+
+            }
+        });
     }
 
     @Override
@@ -56,6 +85,7 @@ public class YardsHomeAdapter extends
     }
 
     public static class YardsHomeViewHolder extends RecyclerView.ViewHolder{
+
 
         ImageView image;
         TextView title, desc, id, num;

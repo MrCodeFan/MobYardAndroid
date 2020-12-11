@@ -168,7 +168,13 @@ public class UserDashboardActivity extends AppCompatActivity
             );
         }
 
-        adapter = new YardsHomeAdapter(homeAdapters);
+        adapter = new YardsHomeAdapter(
+                homeAdapters,
+                getSharedPreferences(
+                        "YardInfoActivity",
+                        MODE_PRIVATE
+                )
+        );
 
         recyclerYards.setAdapter(adapter);
 
@@ -182,7 +188,7 @@ public class UserDashboardActivity extends AppCompatActivity
 
         SharedPreferences.Editor editor = YardInfoPrefs.edit();
         editor.putString("yard_id", yardId );
-        
+
     }
 
 }

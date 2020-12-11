@@ -23,7 +23,7 @@ public class OnboardingActivity extends AppCompatActivity {
     ViewPager viewPager;
     LinearLayout dotsLayout;
     SliderAdapter sliderAdapter;
-    Button getStartedBtn, nextBtn;
+    Button getStartedBtn, nextBtn, skipBtn;
     Animation animation;
     int currPos = 0;
 
@@ -43,6 +43,7 @@ public class OnboardingActivity extends AppCompatActivity {
         dotsLayout = findViewById(R.id.dots);
         getStartedBtn = findViewById(R.id.get_started_btn);
         nextBtn = findViewById(R.id.next_btn);
+        skipBtn = findViewById(R.id.skip_btn);
 
         getStartedBtn.setVisibility(View.INVISIBLE);
 
@@ -113,6 +114,7 @@ public class OnboardingActivity extends AppCompatActivity {
                 getStartedBtn.setAnimation(animation);
                 getStartedBtn.setVisibility(View.VISIBLE);
                 nextBtn.setVisibility( View.INVISIBLE );
+                skipBtn.setVisibility( View.INVISIBLE );
             }
         }
 
