@@ -25,11 +25,12 @@ public class YardsData {
 
 
 
+
     ArrayList<Yards> yardsArrayList;
     List<Yards> yardsList;
 
     String appDirYards;
-
+/*
     @RequiresApi(api = Build.VERSION_CODES.O)
     public YardsData() {
         /*
@@ -47,11 +48,11 @@ public class YardsData {
             Yards yard = getYardByFile(fileName);
             yardsList.add(yard);
         }
-
+    }
 */
 
 
-    }
+
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     public Yards getYardByFile(String fileName){
@@ -125,7 +126,6 @@ public class YardsData {
 
         return yard;
     }
-
 
     public String formJsonFromYard(Yards yards){
 
