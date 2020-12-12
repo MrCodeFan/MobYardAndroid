@@ -82,11 +82,11 @@ public class UserDashboardActivity extends AppCompatActivity
                 MODE_PRIVATE
         );
 
-        email = PersPrefs.getString("mail", "mail.com");
+        email = PersPrefs.getString("mail", "");
         userId = PersPrefs.getString("id", "");
         username = PersPrefs.getString("username", "");
-        lastName = PersPrefs.getString("Lastname", "");
-        firstName = PersPrefs.getString("Firstname", "");
+        lastName = PersPrefs.getString("lastname", "");
+        firstName = PersPrefs.getString("firstname", "");
 
         // Hooks
         recyclerYards = findViewById(R.id.recycler_yards);
@@ -100,8 +100,15 @@ public class UserDashboardActivity extends AppCompatActivity
         drawerLayout = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.nav_view);
 
+        View headerView = navigationView.getHeaderView(0);
+        TextView nameText = headerView.findViewById(R.id.account_name);
+        TextView mailText = headerView.findViewById(R.id.account_mail);
+
+        nameText.setText(firstName + " " + lastName);
+        mailText.setText(email);
 
         navigationDrawer();
+
 
 //        NavigationView navigationViewNew = findViewById(R.id.nav_view);
 //        View header = navigationViewNew.getHeaderView(R.layout.menu_header);
@@ -190,6 +197,7 @@ public class UserDashboardActivity extends AppCompatActivity
                 return successful;
             }
         });
+
 
 
 

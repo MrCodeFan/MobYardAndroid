@@ -51,7 +51,7 @@ public class YardInfoActivity extends AppCompatActivity {
         Yards yards = yardsData.getYard(yardId);
         if ( ! yards.isExist() ){
             Toast.makeText(YardInfoActivity.this, "Some troubles was detected with this yard!", Toast.LENGTH_SHORT).show();
-            finish();
+            // finish();
         }
 
         backIcon = findViewById(R.id.info_back_icon);
