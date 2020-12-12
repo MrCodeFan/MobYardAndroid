@@ -34,6 +34,7 @@ public class YardsData {
     @RequiresApi(api = Build.VERSION_CODES.O)
     public YardsData() {
         /*
+        Context.getDir( "yards", MODE_PRIVATE );
         appDirYards = getDir( "yards", MODE_PRIVATE );
         File dir = new File(appDirYards);
         File[] arrFiles = dir.listFiles();

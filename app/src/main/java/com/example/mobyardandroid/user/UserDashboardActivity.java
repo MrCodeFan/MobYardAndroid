@@ -10,13 +10,18 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.text.Layout;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.mobyardandroid.R;
+import com.example.mobyardandroid.auth.LoginActivity;
 import com.example.mobyardandroid.auth.StartActivity;
 import com.example.mobyardandroid.yard.CreateYardActivity;
 import com.example.mobyardandroid.yard.MainYardActivity;
@@ -24,16 +29,21 @@ import com.example.mobyardandroid.yard.YardInfoActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 import java.util.ArrayList;
 
 public class UserDashboardActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
+    FirebaseUser firebaseUser;
+    FirebaseAuth auth;
+
     // User`s data
     SharedPreferences YardsPrefs, PersPrefs, YardInfoPrefs;
     String email, userId, username, lastName, firstName;
 
+    // Yard`s data
     RecyclerView recyclerYards;
     RecyclerView.Adapter adapter;
 
@@ -53,6 +63,8 @@ public class UserDashboardActivity extends AppCompatActivity
         );
         setContentView(R.layout.activity_user_dashboard);
 
+        auth = FirebaseAuth.getInstance();
+        firebaseUser = auth.getCurrentUser();
 
         PersPrefs = getSharedPreferences(
                 "PersonalData",
@@ -69,13 +81,23 @@ public class UserDashboardActivity extends AppCompatActivity
         recyclerYards = findViewById(R.id.recycler_yards);
         menuIcon = findViewById(R.id.menu_icon);
         addIcon = findViewById(R.id.add_icon);
+        RelativeLayout findField = findViewById(R.id.find_field);
         contentView = findViewById(R.id.content);
+
 
         // Menu Hooks
         drawerLayout = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.nav_view);
 
+
         navigationDrawer();
+
+//        NavigationView navigationViewNew = findViewById(R.id.nav_view);
+//        View header = navigationViewNew.getHeaderView(R.layout.menu_header);
+//        TextView name_box = header.findViewById(R.id.account_name);
+//        TextView mail_box = header.findViewById(R.id.account_mail);
+//        name_box.setText( lastName + " " + firstName );
+//        mail_box.setText( email );
 
         addIcon.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -87,13 +109,71 @@ public class UserDashboardActivity extends AppCompatActivity
             }
         });
 
+        findField.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(
+                        getBaseContext(),
+                        "This action haven`t work yet",
+                        Toast.LENGTH_SHORT
+                ).show();
+            }
+        });
+
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                int id = item.getItemId();
 
-                return false;
+                if (id == R.id.nav_home) {
+
+                } else if (id == R.id.nav_add) {
+
+                } else if (id == R.id.nav_login) {
+                    if ( auth.getCurrentUser() != null ) {
+                        Toast.makeText( getBaseContext(),"Yoy have already sign in!", Toast.LENGTH_SHORT ).show();
+                    } else {
+                        auth.signOut();
+                        startActivity(new Intent(
+                                UserDashboardActivity.this,
+                                LoginActivity.class
+                        ));
+                        finish();
+                    }
+                } else if (id == R.id.nav_profile) {
+
+                } else if (id == R.id.nav_logout) {
+                    auth.signOut();
+                    startActivity(new Intent(
+                            UserDashboardActivity.this,
+                            StartActivity.class
+                    ));
+                    finish();
+                } else if (id == R.id.nav_inv) {
+                    final Intent shareIntent = new Intent( android.content.Intent.ACTION_SEND );
+                    shareIntent.setType("text/plain");
+                    String shareBody = "Share body";
+                    String shareSub = "Share Sub";
+                    shareIntent.putExtra(Intent.EXTRA_SUBJECT, shareSub);
+                    shareIntent.putExtra(Intent.EXTRA_TEXT, shareBody);
+                    startActivity(
+                            Intent.createChooser(
+                                    shareIntent,
+                                    "Share with Friends"
+                            )
+                    );
+                } else if (id == R.id.nav_rep) {
+
+                } else if (id == R.id.nav_faq) {
+
+                }
+
+                DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+                drawer.closeDrawer(GravityCompat.START);
+                return true;
             }
         });
+
 
 
     }
