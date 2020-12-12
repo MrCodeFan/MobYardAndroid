@@ -13,8 +13,9 @@
         android:id="@+id/yard"
         android:layout_width="821dp"
         android:layout_height="439dp"
-        android:layout_marginBottom="44dp"
+        android:layout_marginBottom="40dp"
         android:src="@drawable/ic_yard"
+
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -23,9 +24,10 @@
         android:id="@+id/imagealcove"
         android:layout_width="100dp"
         android:layout_height="65dp"
-        android:layout_marginStart="468dp"
-        android:layout_marginTop="280dp"
+        android:layout_marginStart="472dp"
+        android:layout_marginTop="292dp"
         android:src="@drawable/alcove"
+
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -33,8 +35,9 @@
         android:id="@+id/imagealcove2"
         android:layout_width="100dp"
         android:layout_height="65dp"
-        android:layout_marginStart="468dp"
-        android:layout_marginTop="280dp"
+        android:layout_marginStart="472dp"
+        android:layout_marginTop="292dp"
+
         android:src="@drawable/alcove"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -43,8 +46,8 @@
         android:id="@+id/imageBench"
         android:layout_width="120dp"
         android:layout_height="63dp"
-        android:layout_marginStart="348dp"
-        android:layout_marginTop="284dp"
+        android:layout_marginStart="352dp"
+        android:layout_marginTop="292dp"
         android:src="@drawable/bench"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -53,8 +56,8 @@
         android:id="@+id/imageBench2"
         android:layout_width="120dp"
         android:layout_height="63dp"
-        android:layout_marginStart="348dp"
-        android:layout_marginTop="284dp"
+        android:layout_marginStart="352dp"
+        android:layout_marginTop="292dp"
         android:src="@drawable/bench"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -63,8 +66,8 @@
         android:id="@+id/imageTree1"
         android:layout_width="94dp"
         android:layout_height="63dp"
-        android:layout_marginStart="252dp"
-        android:layout_marginTop="284dp"
+        android:layout_marginStart="260dp"
+        android:layout_marginTop="292dp"
         android:src="@drawable/trees2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -73,8 +76,8 @@
         android:id="@+id/imageTree"
         android:layout_width="94dp"
         android:layout_height="63dp"
-        android:layout_marginStart="252dp"
-        android:layout_marginTop="284dp"
+        android:layout_marginStart="260dp"
+        android:layout_marginTop="292dp"
         android:src="@drawable/trees2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -83,8 +86,8 @@
         android:id="@+id/imageslide"
         android:layout_width="94dp"
         android:layout_height="84dp"
-        android:layout_marginStart="568dp"
-        android:layout_marginTop="272dp"
+        android:layout_marginStart="596dp"
+        android:layout_marginTop="284dp"
         android:src="@drawable/slide"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -93,8 +96,8 @@
         android:id="@+id/imageslide2"
         android:layout_width="94dp"
         android:layout_height="84dp"
-        android:layout_marginStart="568dp"
-        android:layout_marginTop="272dp"
+        android:layout_marginStart="596dp"
+        android:layout_marginTop="284dp"
         android:src="@drawable/slide"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -155,30 +158,10 @@
         android:layout_height="63dp"
         android:layout_marginStart="4dp"
         android:layout_marginTop="292dp"
+        android:rotation="90"
         android:src="@drawable/flowerbad"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:id="@+id/collision"
-        android:layout_width="722dp"
-        android:layout_height="50dp"
-        android:layout_marginBottom="188dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:src="@drawable/drawable_background_shape" />
-
-    <ImageView
-        android:id="@+id/collision1"
-        android:layout_width="72dp"
-        android:layout_height="166dp"
-        android:layout_marginBottom="244dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.485"
-        app:layout_constraintStart_toStartOf="parent"
-        android:src="@drawable/drawable_background_shape" />
 
     <ImageView
         android:id="@+id/imageback"
@@ -189,6 +172,119 @@
         android:src="@drawable/back_icon"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_baseline_crop_rotate_24"
+        app:layout_constraintBottom_toTopOf="@+id/flowerbed3"
+        app:layout_constraintStart_toEndOf="@+id/flowerbed3" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_baseline_crop_rotate_24"
+        app:layout_constraintBottom_toTopOf="@+id/flowerbed"
+        app:layout_constraintStart_toEndOf="@+id/flowerbed" />
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_baseline_crop_rotate_24"
+        app:layout_constraintBottom_toTopOf="@+id/flowerbed4"
+        app:layout_constraintStart_toEndOf="@+id/flowerbed4" />
+
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_baseline_crop_rotate_24"
+        app:layout_constraintBottom_toTopOf="@+id/flowerbed2"
+        app:layout_constraintStart_toEndOf="@+id/flowerbed2" />
+
+    <ImageView
+        android:id="@+id/imageView7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="89dp"
+        app:layout_constraintBottom_toTopOf="@+id/bycycleparking2"
+        app:layout_constraintStart_toStartOf="@+id/bycycleparking2"
+        android:src="@drawable/ic_baseline_crop_rotate_24" />
+
+    <ImageView
+        android:id="@+id/imageView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/bycycleparking"
+        app:layout_constraintStart_toEndOf="@+id/bycycleparking"
+        android:src="@drawable/ic_baseline_crop_rotate_24" />
+
+    <ImageView
+        android:id="@+id/imageView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/imageTree"
+        app:layout_constraintStart_toEndOf="@+id/imageTree"
+        android:src="@drawable/ic_baseline_crop_rotate_24" />
+
+    <ImageView
+        android:id="@+id/imageView10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/imageTree1"
+        app:layout_constraintStart_toEndOf="@+id/imageTree1"
+        android:src="@drawable/ic_baseline_crop_rotate_24" />
+
+    <ImageView
+        android:id="@+id/imageView11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/imageBench2"
+        app:layout_constraintStart_toEndOf="@+id/imageBench2"
+        android:src="@drawable/ic_baseline_crop_rotate_24" />
+
+    <ImageView
+        android:id="@+id/imageView12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/imageBench"
+        app:layout_constraintStart_toEndOf="@+id/imageBench"
+        android:src="@drawable/ic_baseline_crop_rotate_24" />
+
+    <ImageView
+        android:id="@+id/imageView13"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/imagealcove2"
+        app:layout_constraintStart_toEndOf="@+id/imagealcove2"
+        android:src="@drawable/ic_baseline_crop_rotate_24" />
+
+    <ImageView
+        android:id="@+id/imageView14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/imagealcove"
+        app:layout_constraintStart_toEndOf="@+id/imagealcove"
+        android:src="@drawable/ic_baseline_crop_rotate_24" />
+
+    <ImageView
+        android:id="@+id/imageView15"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/imageslide2"
+        app:layout_constraintStart_toEndOf="@+id/imageslide2"
+        android:src="@drawable/ic_baseline_crop_rotate_24" />
+
+    <ImageView
+        android:id="@+id/imageView16"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/imageslide"
+        app:layout_constraintStart_toEndOf="@+id/imageslide"
+        android:src="@drawable/ic_baseline_crop_rotate_24" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 
