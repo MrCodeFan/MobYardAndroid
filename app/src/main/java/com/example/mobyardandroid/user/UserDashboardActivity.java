@@ -73,7 +73,7 @@ public class UserDashboardActivity extends AppCompatActivity
         auth = FirebaseAuth.getInstance();
         firebaseUser = auth.getCurrentUser();
 
-        yardsData = new YardsData();
+        yardsData = new YardsData(this );
         // yardsList = yardsData.getListYards();
         yardsArrayList = yardsData.getArrayListYards();
 
@@ -100,6 +100,7 @@ public class UserDashboardActivity extends AppCompatActivity
         drawerLayout = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.nav_view);
 
+        // Changing the header menu ( Name and E-mail )
         View headerView = navigationView.getHeaderView(0);
         TextView nameText = headerView.findViewById(R.id.account_name);
         TextView mailText = headerView.findViewById(R.id.account_mail);

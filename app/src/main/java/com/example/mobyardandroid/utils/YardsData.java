@@ -1,8 +1,11 @@
 package com.example.mobyardandroid.utils;
 
+import android.app.Application;
 import android.content.Context;
 import android.os.Build;
 import android.os.Environment;
+import android.system.Os;
+
 import androidx.annotation.RequiresApi;
 
 import org.json.JSONArray;
@@ -35,7 +38,9 @@ public class YardsData {
 
 
     @RequiresApi(api = Build.VERSION_CODES.O)
-    public YardsData() {
+    public YardsData(Context context) {
+        this.context = context.getApplicationContext();
+
         randS = new RandomString();
         //yardsList = new List<Yards>();
         yardsArrayList = new ArrayList<Yards>();

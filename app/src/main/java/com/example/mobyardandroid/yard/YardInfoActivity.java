@@ -46,8 +46,8 @@ public class YardInfoActivity extends AppCompatActivity {
                 MODE_PRIVATE
         );
         String yardId = infoPref.getString("yard_id", "");
-        // Toast.makeText(YardInfoActivity.this, yardId, Toast.LENGTH_SHORT).show();
-        yardsData = new YardsData();
+        Toast.makeText(YardInfoActivity.this, yardId, Toast.LENGTH_SHORT).show();
+        yardsData = new YardsData(this );
         Yards yards = yardsData.getYard(yardId);
         if ( ! yards.isExist() ){
             Toast.makeText(YardInfoActivity.this, "Some troubles was detected with this yard!", Toast.LENGTH_SHORT).show();

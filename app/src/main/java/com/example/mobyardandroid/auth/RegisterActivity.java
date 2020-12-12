@@ -122,6 +122,7 @@ public class RegisterActivity extends AppCompatActivity {
                                         editor.putString("username", txt_username );
                                         editor.putString("Firstname", txt_firstname );
                                         editor.putString("Lastname", txt_lastname );
+                                        editor.apply();
 
 
                                         Intent intent = new Intent(RegisterActivity.this, UserDashboardActivity.class);
