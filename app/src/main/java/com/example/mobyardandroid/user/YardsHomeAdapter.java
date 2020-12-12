@@ -1,5 +1,6 @@
 package com.example.mobyardandroid.user;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.view.LayoutInflater;
@@ -60,17 +61,11 @@ public class YardsHomeAdapter extends
             @Override
             public void onClick(View v) {
 
-
-
                 SharedPreferences.Editor editor = infoPref.edit();
                 editor.putString("yard_id", yardsHomeAdapter.getId() );
 
-                Toast.makeText(
-                        v.getContext(),
-                        "You clicked at " + yardsHomeAdapter.getTitle() + yardsHomeAdapter.getCardNumStr(),
-                        Toast.LENGTH_SHORT
-                ).show();
 
+                // Toast.makeText(v.getContext(), yardsHomeAdapter.getId(), Toast.LENGTH_LONG);
 
                 Intent intent = new Intent(v.getContext(), YardInfoActivity.class);
                 v.getContext().startActivity(intent);
@@ -101,5 +96,6 @@ public class YardsHomeAdapter extends
             num = itemView.findViewById(R.id.yard_num);
         }
     }
+
 
 }

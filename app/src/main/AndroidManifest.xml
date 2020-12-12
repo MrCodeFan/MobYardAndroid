@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- https://github.com/MrCodeFan/MobYardAndroid -->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.mobyardandroid">
 
@@ -10,7 +9,7 @@
         android:roundIcon="@mipmap/app_icon_first"
         android:supportsRtl="true"
         android:theme="@style/MobYardTheme">
-        <activity android:name=".yard.YardInfoActivity"></activity>
+        <activity android:name=".yard.YardInfoActivity" />
         <activity android:name=".yard.CreateYardActivity" />
         <activity android:name=".user.UserDashboardActivity" />
         <activity android:name=".yard.MainYardActivity" />

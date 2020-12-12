@@ -38,12 +38,103 @@
         android:layout_height="match_parent">
 
         <LinearLayout
+
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
             android:paddingTop="20dp"
             android:padding="20dp">
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:id="@+id/yard_id"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp">
+                    <TextView
+                        android:layout_width="@dimen/yard_info_title"
+                        android:layout_height="match_parent"
+                        android:text="@string/yard_info_id"
+                        android:gravity="center_vertical"/>
+                    <TextView
+                        android:id="@+id/yard_id_data"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text=""
+                        android:gravity="center_vertical"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/yard_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    >
+                    <TextView
+                        android:layout_width="@dimen/yard_info_title"
+                        android:layout_height="match_parent"
+                        android:text="@string/yard_info_name"
+                        android:gravity="center_vertical"/>
+                    <TextView
+                        android:id="@+id/yard_name_data"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text=""
+                        android:gravity="center_vertical"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/yard_longitude"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp">
+                    <TextView
+                        android:layout_width="@dimen/yard_info_title"
+                        android:layout_height="match_parent"
+                        android:text="@string/yard_info_longitude"
+                        android:gravity="center_vertical"/>
+                    <TextView
+                        android:id="@+id/yard_longitude_data"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text=""
+                        android:gravity="center_vertical"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/yard_latitude"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp">
+                    <TextView
+                        android:layout_width="@dimen/yard_info_title"
+                        android:layout_height="match_parent"
+                        android:text="@string/yard_info_latitude"
+                        android:gravity="center_vertical"/>
+                    <TextView
+                        android:id="@+id/yard_latitide_data"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text=""
+                        android:gravity="center_vertical"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/yard_desc"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp">
+                    <TextView
+                        android:layout_width="@dimen/yard_info_title"
+                        android:layout_height="match_parent"
+                        android:text="@string/yard_info_desc"
+                        android:gravity="center_vertical"/>
+                    <TextView
+                        android:id="@+id/yard_desc_data"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text=""
+                        android:gravity="center"/>
+                </LinearLayout>
+
+            </LinearLayout>
 
             <RelativeLayout
                 android:layout_width="match_parent"
