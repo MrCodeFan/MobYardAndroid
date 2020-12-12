@@ -123,7 +123,7 @@
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/recycler_yards"
                         android:layout_width="match_parent"
-                        android:layout_height="450dp">
+                        android:layout_height="510dp">
 
                     </androidx.recyclerview.widget.RecyclerView>
                 </RelativeLayout>

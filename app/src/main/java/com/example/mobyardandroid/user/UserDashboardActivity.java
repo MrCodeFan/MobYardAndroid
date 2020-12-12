@@ -23,6 +23,8 @@ import android.widget.Toast;
 import com.example.mobyardandroid.R;
 import com.example.mobyardandroid.auth.LoginActivity;
 import com.example.mobyardandroid.auth.StartActivity;
+import com.example.mobyardandroid.utils.Yards;
+import com.example.mobyardandroid.utils.YardsData;
 import com.example.mobyardandroid.yard.CreateYardActivity;
 import com.example.mobyardandroid.yard.MainYardActivity;
 import com.example.mobyardandroid.yard.YardInfoActivity;
@@ -32,6 +34,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class UserDashboardActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -46,6 +49,10 @@ public class UserDashboardActivity extends AppCompatActivity
     // Yard`s data
     RecyclerView recyclerYards;
     RecyclerView.Adapter adapter;
+
+    YardsData yardsData;
+    List<Yards> yardsList;
+    ArrayList<Yards> yardsArrayList;
 
     // Drawer Menu
     DrawerLayout drawerLayout;
@@ -65,6 +72,10 @@ public class UserDashboardActivity extends AppCompatActivity
 
         auth = FirebaseAuth.getInstance();
         firebaseUser = auth.getCurrentUser();
+
+        yardsData = new YardsData();
+        // yardsList = yardsData.getListYards();
+        yardsArrayList = yardsData.getArrayListYards();
 
         PersPrefs = getSharedPreferences(
                 "PersonalData",
@@ -123,13 +134,15 @@ public class UserDashboardActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                boolean successful = false;
                 int id = item.getItemId();
 
                 if (id == R.id.nav_home) {
-
+                    successful = true;
                 } else if (id == R.id.nav_add) {
 
                 } else if (id == R.id.nav_login) {
+                    successful = true;
                     if ( auth.getCurrentUser() != null ) {
                         Toast.makeText( getBaseContext(),"Yoy have already sign in!", Toast.LENGTH_SHORT ).show();
                     } else {
@@ -143,6 +156,7 @@ public class UserDashboardActivity extends AppCompatActivity
                 } else if (id == R.id.nav_profile) {
 
                 } else if (id == R.id.nav_logout) {
+                    successful = true;
                     auth.signOut();
                     startActivity(new Intent(
                             UserDashboardActivity.this,
@@ -150,9 +164,11 @@ public class UserDashboardActivity extends AppCompatActivity
                     ));
                     finish();
                 } else if (id == R.id.nav_inv) {
+                    successful = true;
                     final Intent shareIntent = new Intent( android.content.Intent.ACTION_SEND );
                     shareIntent.setType("text/plain");
-                    String shareBody = "Share body";
+                    String shareBody = getString(R.string.share_app);
+
                     String shareSub = "Share Sub";
                     shareIntent.putExtra(Intent.EXTRA_SUBJECT, shareSub);
                     shareIntent.putExtra(Intent.EXTRA_TEXT, shareBody);
@@ -169,8 +185,9 @@ public class UserDashboardActivity extends AppCompatActivity
                 }
 
                 DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-                drawer.closeDrawer(GravityCompat.START);
-                return true;
+                if (successful)
+                    drawer.closeDrawer(GravityCompat.START);
+                return successful;
             }
         });
 
@@ -264,17 +281,22 @@ public class UserDashboardActivity extends AppCompatActivity
 
         ArrayList<HomeAdapter> homeAdapters = new ArrayList<>();
 
-        for (int i = 1; i < 4; i++ ) {
+        for (int i = 0; i < yardsArrayList.size(); i++ ){
+            Yards yard = yardsArrayList.get(i);
+            String yard_id = yard.getId();
+            String yard_desc = yard.getDesc();
+            String yard_title = yard.getName();
             homeAdapters.add(
                     new HomeAdapter(
                             R.drawable.yard_pic_template,
-                            getString(R.string.yards_title),
-                            getString(R.string.yards_id),
-                            getString(R.string.yards_desc),
-                            i
+                            yard_title,
+                            "Yard ID: " + yard_id,
+                            yard_desc,
+                            i + 1
                     )
             );
         }
+
 
         adapter = new YardsHomeAdapter(
                 homeAdapters,
@@ -296,6 +318,8 @@ public class UserDashboardActivity extends AppCompatActivity
 
         SharedPreferences.Editor editor = YardInfoPrefs.edit();
         editor.putString("yard_id", yardId );
+
+
 
     }
 

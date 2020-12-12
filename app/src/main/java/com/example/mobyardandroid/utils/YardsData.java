@@ -28,29 +28,27 @@ public class YardsData {
 
     ArrayList<Yards> yardsArrayList;
     List<Yards> yardsList;
-
+    RandomString randS;
     String appDirYards;
-/*
-    @RequiresApi(api = Build.VERSION_CODES.O)
+
+
     public YardsData() {
-        /*
-        Context.getDir( "yards", MODE_PRIVATE );
-        appDirYards = getDir( "yards", MODE_PRIVATE );
-        File dir = new File(appDirYards);
-        File[] arrFiles = dir.listFiles();
-        List<File> lst = Arrays.asList(arrFiles);
+        randS = new RandomString();
+        //yardsList = new List<Yards>();
+        yardsArrayList = new ArrayList<Yards>();
+        // load();
 
-        File tempFile;
-
-        for (int i = 0; i < lst.size(); i++ ) {
-            tempFile = lst.get(i);
-
-            String fileName = tempFile.getName();
-            Yards yard = getYardByFile(fileName);
-            yardsList.add(yard);
+        String[] tokens = { "AFLMSFML544SGGSSG54G4SVD", "FEA4EF8GR61WG51W4G5", "BR8S8TE49EVVW6181BTRE4", "BR8S8TE49EVVW6181B1548"};
+        for (int i = 0; i < 3; i++){
+            Yards yards = new Yards();
+            yards.exist = true;
+            yards.name = String.format("Yard №%d", i+1);
+            yards.id = tokens[i];
+            yardsArrayList.add(yards);
         }
+
+
     }
-*/
 
 
 
@@ -92,7 +90,7 @@ public class YardsData {
 
     public void add( String yardId, String name, String desc, Double longitude, Double latitude ) throws IOException {
         Yards yards = new Yards(yardId, name, desc, longitude, latitude);
-        yardsList.add(yards);
+        yardsArrayList.add(yards);
         saveYard(yards);
     }
 
@@ -118,10 +116,10 @@ public class YardsData {
     public Yards getYard(String id) {
         Yards yard = new Yards();
 
-        for (int i = 0; i < yardsList.size(); i++ ){
+        for (int i = 0; i < yardsArrayList.size(); i++ ){
 
-            if ( yardsList.get(i).id == id ) {
-                return yardsList.get(i);
+            if ( yardsArrayList.get(i).id == id ) {
+                return yardsArrayList.get(i);
             }
         }
 
@@ -144,5 +142,35 @@ public class YardsData {
 
         }
 
+    }
+
+    public void load(){
+        /*
+        getDir( "yards", MODE_PRIVATE );
+        appDirYards = getDir( "yards", MODE_PRIVATE );
+        File dir = new File(appDirYards);
+        File[] arrFiles = dir.listFiles();
+        List<File> lst = Arrays.asList(arrFiles);
+
+        File tempFile;
+
+        for (int i = 0; i < lst.size(); i++ ) {
+            tempFile = lst.get(i);
+
+            String fileName = tempFile.getName();
+            Yards yard = getYardByFile(fileName);
+            yardsList.add(yard);
+
+        }
+
+        */
+    }
+
+    public List<Yards> getListYards(){
+        return yardsList;
+    }
+
+    public ArrayList<Yards> getArrayListYards(){
+        return yardsArrayList;
     }
 }

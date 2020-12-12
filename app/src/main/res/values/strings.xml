@@ -19,6 +19,13 @@
     <string name="entry_or">-- or --</string>
     <string name="entry_login">Login</string>
     <string name="entry_reg">Register</string>
+    <string name="reg_acc">Create Account</string>
+
+    <string name="reg_firstname">Firstname</string>
+    <string name="reg_lastname">Lastname</string>
+    <string name="reg_pass">Password</string>
+    <string name="reg_mail">E-mail</string>
+    <string name="reg_username">Username</string>
 
     <!-- First Load Page -->
     <string name="slogan">Make you yard comfortable</string> <!-- Not used -->
@@ -63,7 +70,18 @@
 
     <!-- Yard Menu -->
     <string name="yard_info_header">Yard Info</string>
+    <string name="yard_info_id">Yard ID</string>
+    <string name="yard_info_name">Yard Name</string>
+    <string name="yard_info_desc">Description</string>
+    <string name="yard_info_longitude">Longitude</string>
+    <string name="yard_info_latitude">Latitude</string>
+
     <string name="yard_info_button">Go to Edit</string>
+
+
+    <string name="share_app">Hi!\n\nMobile Yard is a convenient app for improving your yard. Because of it, there are great improvements in my yard.\n\nDownload it for free https://github.com/MrCodeFan/MobYardAndroid.git</string>
+
+
 
 
 </resources>
