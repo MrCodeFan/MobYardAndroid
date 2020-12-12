@@ -13,6 +13,7 @@ import android.widget.TextView;
 
 import com.example.mobyardandroid.R;
 import com.example.mobyardandroid.auth.StartActivity;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class StartLoadActivity extends AppCompatActivity {
 
@@ -25,6 +26,7 @@ public class StartLoadActivity extends AppCompatActivity {
     // Animations
     Animation sideAnim, bottomAnim, pictureAnim;
 
+    FirebaseAuth auth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +36,8 @@ public class StartLoadActivity extends AppCompatActivity {
                 WindowManager.LayoutParams.FLAG_FULLSCREEN
         );
         setContentView(R.layout.activity_start_load);
+
+        auth = FirebaseAuth.getInstance();
 
         // Hooks
         backgroundImage = findViewById(R.id.imageView);
@@ -52,8 +56,12 @@ public class StartLoadActivity extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-
-                Intent intent = new Intent(StartLoadActivity.this, StartActivity.class);
+                Intent intent;
+                if (auth.getCurrentUser() != null) {
+                    intent = new Intent(StartLoadActivity.this, StartActivity.class);
+                } else {
+                    intent = new Intent(StartLoadActivity.this, OnboardingActivity.class);
+                }
                 startActivity(intent);
                 finish();
             }

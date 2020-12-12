@@ -1,9 +1,6 @@
+<!-- https://github.com/MrCodeFan/MobYardAndroid -->
 <resources>
     <string name="app_name">Mobile Yard</string>
-    <string name="navigation_drawer_open">Open navigation drawer</string>
-    <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="nav_header_title">First and Last Name</string>
-    <string name="nav_header_subtitle">account@mail.com</string>
 
     <string name="nav_title_name">-Studio</string>
     <string name="nav_subtitle_mail">-@android.com</string>
@@ -16,12 +13,22 @@
     <string name="menu_slideshow">Slideshow</string>
     <string name="menu_logout">Logout</string>
 
-    <string name="title_activity_yard">FullscreenActivity</string>
-    <string name="dummy_button">Dummy Button</string>
-    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <!-- Login And Reg -->
+    <string name="entry_header">Entry</string>
+    <string name="entry_desc">Entry</string>
+    <string name="entry_or">-- or --</string>
+    <string name="entry_login">Login</string>
+    <string name="entry_reg">Register</string>
+    <string name="reg_acc">Create Account</string>
+
+    <string name="reg_firstname">Firstname</string>
+    <string name="reg_lastname">Lastname</string>
+    <string name="reg_pass">Password</string>
+    <string name="reg_mail">E-mail</string>
+    <string name="reg_username">Username</string>
 
     <!-- First Load Page -->
-    <string name="slogan">Make you yard comfortable</string>
+    <string name="slogan">Make you yard comfortable</string> <!-- Not used -->
     <string name="powered_by">Powered by CatX</string>
 
     <!-- Buttons -->
@@ -32,11 +39,11 @@
     <!-- Onboarding Page -->
     <string name="first_slide_title">Mobility and Convenience</string>
     <string name="second_slide_title">Creativity</string>
-    <string name="third_slide_title">third_slide_title</string>
+    <string name="third_slide_title">Profit</string>
 
     <string name="first_slide_desc">Create a yard project right on your phone!</string>
     <string name="second_slide_desc">Choose from a wide variety of elements to create your perfect yard</string>
-    <string name="third_slide_desc">third_slide_desc</string>
+    <string name="third_slide_desc">Upgrade your yard with other users</string>
 
     <!-- User Dashboard -->
     <string name="user_dashboard_header">Mobile Yard</string>
@@ -63,7 +70,18 @@
 
     <!-- Yard Menu -->
     <string name="yard_info_header">Yard Info</string>
+    <string name="yard_info_id">Yard ID</string>
+    <string name="yard_info_name">Yard Name</string>
+    <string name="yard_info_desc">Description</string>
+    <string name="yard_info_longitude">Longitude</string>
+    <string name="yard_info_latitude">Latitude</string>
+
     <string name="yard_info_button">Go to Edit</string>
+
+
+    <string name="share_app">Hi!\n\nMobile Yard is a convenient app for improving your yard. Because of it, there are great improvements in my yard.\n\nDownload it for free https://github.com/MrCodeFan/MobYardAndroid.git</string>
+
+
 
 
 </resources>

@@ -10,33 +10,54 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.text.Layout;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.mobyardandroid.R;
+import com.example.mobyardandroid.auth.LoginActivity;
 import com.example.mobyardandroid.auth.StartActivity;
+import com.example.mobyardandroid.utils.Yards;
+import com.example.mobyardandroid.utils.YardsData;
+import com.example.mobyardandroid.yard.CreateYardActivity;
+import com.example.mobyardandroid.yard.MainYardActivity;
+import com.example.mobyardandroid.yard.YardInfoActivity;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class UserDashboardActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+    FirebaseUser firebaseUser;
+    FirebaseAuth auth;
 
     // User`s data
     SharedPreferences YardsPrefs, PersPrefs, YardInfoPrefs;
     String email, userId, username, lastName, firstName;
 
+    // Yard`s data
     RecyclerView recyclerYards;
     RecyclerView.Adapter adapter;
+
+    YardsData yardsData;
+    List<Yards> yardsList;
+    ArrayList<Yards> yardsArrayList;
 
     // Drawer Menu
     DrawerLayout drawerLayout;
     NavigationView navigationView;
-    ImageView menuIcon;
+    ImageView menuIcon, addIcon;
     LinearLayout contentView;
     static final float END_SCALE = 0.7f;
 
@@ -49,6 +70,12 @@ public class UserDashboardActivity extends AppCompatActivity
         );
         setContentView(R.layout.activity_user_dashboard);
 
+        auth = FirebaseAuth.getInstance();
+        firebaseUser = auth.getCurrentUser();
+
+        yardsData = new YardsData(this );
+        // yardsList = yardsData.getListYards();
+        yardsArrayList = yardsData.getArrayListYards();
 
         PersPrefs = getSharedPreferences(
                 "PersonalData",
@@ -58,22 +85,123 @@ public class UserDashboardActivity extends AppCompatActivity
         email = PersPrefs.getString("mail", "");
         userId = PersPrefs.getString("id", "");
         username = PersPrefs.getString("username", "");
-        lastName = PersPrefs.getString("Lastname", "");
-        firstName = PersPrefs.getString("Firstname", "");
+        lastName = PersPrefs.getString("lastname", "");
+        firstName = PersPrefs.getString("firstname", "");
 
         // Hooks
         recyclerYards = findViewById(R.id.recycler_yards);
         menuIcon = findViewById(R.id.menu_icon);
+        addIcon = findViewById(R.id.add_icon);
+        RelativeLayout findField = findViewById(R.id.find_field);
         contentView = findViewById(R.id.content);
+
 
         // Menu Hooks
         drawerLayout = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.nav_view);
 
+        // Changing the header menu ( Name and E-mail )
+        View headerView = navigationView.getHeaderView(0);
+        TextView nameText = headerView.findViewById(R.id.account_name);
+        TextView mailText = headerView.findViewById(R.id.account_mail);
+
+        nameText.setText(firstName + " " + lastName);
+        mailText.setText(email);
+
         navigationDrawer();
 
 
-        recyclerYards();
+//        NavigationView navigationViewNew = findViewById(R.id.nav_view);
+//        View header = navigationViewNew.getHeaderView(R.layout.menu_header);
+//        TextView name_box = header.findViewById(R.id.account_name);
+//        TextView mail_box = header.findViewById(R.id.account_mail);
+//        name_box.setText( lastName + " " + firstName );
+//        mail_box.setText( email );
+
+        addIcon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(
+                        UserDashboardActivity.this,
+                        CreateYardActivity.class
+                ));
+            }
+        });
+
+        findField.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(
+                        getBaseContext(),
+                        "This action haven`t work yet",
+                        Toast.LENGTH_SHORT
+                ).show();
+            }
+        });
+
+        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                boolean successful = false;
+                int id = item.getItemId();
+
+                if (id == R.id.nav_home) {
+                    successful = true;
+                } else if (id == R.id.nav_add) {
+
+                } else if (id == R.id.nav_login) {
+                    successful = true;
+                    if ( auth.getCurrentUser() != null ) {
+                        Toast.makeText( getBaseContext(),"Yoy have already sign in!", Toast.LENGTH_SHORT ).show();
+                    } else {
+                        auth.signOut();
+                        startActivity(new Intent(
+                                UserDashboardActivity.this,
+                                LoginActivity.class
+                        ));
+                        finish();
+                    }
+                } else if (id == R.id.nav_profile) {
+
+                } else if (id == R.id.nav_logout) {
+                    successful = true;
+                    auth.signOut();
+                    startActivity(new Intent(
+                            UserDashboardActivity.this,
+                            StartActivity.class
+                    ));
+                    finish();
+                } else if (id == R.id.nav_inv) {
+                    successful = true;
+                    final Intent shareIntent = new Intent( android.content.Intent.ACTION_SEND );
+                    shareIntent.setType("text/plain");
+                    String shareBody = getString(R.string.share_app);
+
+                    String shareSub = "Share Sub";
+                    shareIntent.putExtra(Intent.EXTRA_SUBJECT, shareSub);
+                    shareIntent.putExtra(Intent.EXTRA_TEXT, shareBody);
+                    startActivity(
+                            Intent.createChooser(
+                                    shareIntent,
+                                    "Share with Friends"
+                            )
+                    );
+                } else if (id == R.id.nav_rep) {
+
+                } else if (id == R.id.nav_faq) {
+
+                }
+
+                DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+                if (successful)
+                    drawer.closeDrawer(GravityCompat.START);
+                return successful;
+            }
+        });
+
+
+
+
     }
 
 
@@ -100,6 +228,8 @@ public class UserDashboardActivity extends AppCompatActivity
     }
 
     private void animateNavigationDrawer() {
+        // This code not our (CatX)
+        // We took this code from one tutorial
         drawerLayout.setScrimColor(getResources().getColor(R.color.add_background));
         drawerLayout.addDrawerListener(new DrawerLayout.SimpleDrawerListener() {
             @Override
@@ -130,6 +260,7 @@ public class UserDashboardActivity extends AppCompatActivity
     }
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+
         return true;
     }
 
@@ -141,6 +272,9 @@ public class UserDashboardActivity extends AppCompatActivity
                 "YardsData",
                 MODE_PRIVATE
         );
+
+
+        recyclerYards();
 
 
     }
@@ -156,17 +290,22 @@ public class UserDashboardActivity extends AppCompatActivity
 
         ArrayList<HomeAdapter> homeAdapters = new ArrayList<>();
 
-        for (int i = 1; i < 4; i++ ) {
+        for (int i = 0; i < yardsArrayList.size(); i++ ){
+            Yards yard = yardsArrayList.get(i);
+            String yard_id = yard.getId();
+            String yard_desc = yard.getDesc();
+            String yard_title = yard.getName();
             homeAdapters.add(
                     new HomeAdapter(
                             R.drawable.yard_pic_template,
-                            getString(R.string.yards_title),
-                            getString(R.string.yards_id),
-                            getString(R.string.yards_desc),
-                            i
+                            yard_title,
+                            "Yard ID: " + yard_id,
+                            yard_desc,
+                            i + 1
                     )
             );
         }
+
 
         adapter = new YardsHomeAdapter(
                 homeAdapters,
@@ -188,6 +327,8 @@ public class UserDashboardActivity extends AppCompatActivity
 
         SharedPreferences.Editor editor = YardInfoPrefs.edit();
         editor.putString("yard_id", yardId );
+
+
 
     }
 
