@@ -153,18 +153,6 @@ public class UserDashboardActivity extends AppCompatActivity
                             UserDashboardActivity.this,
                             CreateYardActivity.class
                     ));
-                } else if (id == R.id.nav_login) {
-                    successful = true;
-                    if ( auth.getCurrentUser() != null ) {
-                        Toast.makeText( getBaseContext(),"Yoy have already sign in!", Toast.LENGTH_SHORT ).show();
-                    } else {
-                        auth.signOut();
-                        startActivity(new Intent(
-                                UserDashboardActivity.this,
-                                LoginActivity.class
-                        ));
-                        finish();
-                    }
                 } else if (id == R.id.nav_profile) {
 
                 } else if (id == R.id.nav_logout) {
