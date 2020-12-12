@@ -78,6 +78,16 @@
 
     <string name="yard_info_button">Go to Edit</string>
 
+    <!-- Create Yard Menu -->
+    <string name="yard_create_header">Create Yard</string>
+    <string name="yard_create_id">Yard ID</string>
+    <string name="yard_create_name">Name of Yard</string>
+    <string name="yard_create_desc">Description</string>
+    <string name="yard_create_longitude">Longitude</string>
+    <string name="yard_create_latitude">Latitude</string>
+    <string name="yard_create_height">Height</string>
+    <string name="yard_create_weight">Weight</string>
+
 
     <string name="share_app">Hi!\n\nMobile Yard is a convenient app for improving your yard. Because of it, there are great improvements in my yard.\n\nDownload it for free https://github.com/MrCodeFan/MobYardAndroid.git</string>
 

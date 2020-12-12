@@ -120,8 +120,8 @@ public class RegisterActivity extends AppCompatActivity {
                                         SharedPreferences.Editor editor = RegisterPrefs.edit();
                                         editor.putString("mail", txt_email );
                                         editor.putString("username", txt_username );
-                                        editor.putString("Firstname", txt_firstname );
-                                        editor.putString("Lastname", txt_lastname );
+                                        editor.putString("firstname", txt_firstname );
+                                        editor.putString("lastname", txt_lastname );
                                         editor.apply();
 
 

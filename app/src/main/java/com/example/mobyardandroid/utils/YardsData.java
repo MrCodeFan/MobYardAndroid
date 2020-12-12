@@ -26,9 +26,6 @@ import java.util.List;
 
 public class YardsData {
 
-
-
-
     ArrayList<Yards> yardsArrayList;
     List<Yards> yardsList;
     RandomString randS;
@@ -50,7 +47,7 @@ public class YardsData {
         for (int i = 0; i < 3; i++){
             Yards yards = new Yards();
             yards.exist = true;
-            yards.name = String.format("Yard №%d", i+1);
+            yards.name = String.format("Yard №%d", i + 1 );
             yards.id = tokens[i];
             yardsArrayList.add(yards);
         }
@@ -81,6 +78,8 @@ public class YardsData {
                 tempYard.desc = obj.getString("desc");
                 tempYard.name = obj.getString("name");
                 tempYard.longitude = obj.getDouble("longitude");
+                tempYard.weight = obj.getDouble("weight");
+                tempYard.height = obj.getDouble("height");
                 tempYard.latitude = obj.getDouble("latitude");
 
                 tempYard.exist = true;
@@ -96,10 +95,15 @@ public class YardsData {
         return tempYard;
     }
 
-    public void add( String yardId, String name, String desc, Double longitude, Double latitude ) throws IOException {
-        Yards yards = new Yards(yardId, name, desc, longitude, latitude);
+    public void add( String yardId, String name, String desc, Double weight, Double height, Double longitude, Double latitude ){
+        Yards yards = new Yards(yardId, name, desc, weight, height, longitude, latitude);
         yardsArrayList.add(yards);
-        saveYard(yards);
+        try {
+            saveYard(yards);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        ;
     }
 
     public void saveYard(String yardId ) throws IOException {
@@ -108,24 +112,18 @@ public class YardsData {
             saveYard(yard);
         }
     }
-    public void saveYard(Yards yard ) throws IOException {
+    public void saveYard( Yards yard ) throws IOException {
         String dir = appDirYards;
         dir += yard.id + ".json";
         String info = formJsonFromYard(yard);
-
-
         writeFile(dir, info);
-
-
     }
 
 
 
     public Yards getYard(String id) {
         Yards yard = new Yards();
-
         for (int i = 0; i < yardsArrayList.size(); i++ ){
-
             if ( yardsArrayList.get(i).id == id ) {
                 return yardsArrayList.get(i);
             }
@@ -135,9 +133,28 @@ public class YardsData {
     }
 
     public String formJsonFromYard(Yards yards){
-        String longitudeString = String.valueOf(yards.longitude);
-        String latitudeString = String.valueOf(yards.latitude);
-        return yards.id + "," + yards.name + "," + yards.desc + "," + longitudeString + "," + latitudeString;
+        String output = "{";
+        String longitudeString = String.valueOf(yards.getLongitude());
+        String latitudeString = String.valueOf(yards.getLatitude());
+
+        String heightString = String.valueOf(yards.getHeight());
+        String weightString = String.valueOf(yards.getWeight());
+
+        output += String.format("\"id\":\"%s\",", yards.getId() );
+        output += String.format("\"name\":\"%s\",", yards.getName() );
+        output += String.format("\"desc\":\"%s\",", yards.getDesc() );
+
+        output += String.format("\"desc\":\"%s\",", yards.getOwner() );
+
+        output += String.format("\"longitude\":%s,", longitudeString );
+        output += String.format("\"latitude\":%s,", latitudeString );
+
+        output += String.format("\"height\":%s,", heightString );
+        output += String.format("\"weight\":%s", weightString );
+
+        output += "}";
+
+        return  output;
     }
 
     public void writeFile(String dir, String info) throws IOException {
@@ -179,5 +196,28 @@ public class YardsData {
 
     public ArrayList<Yards> getArrayListYards(){
         return yardsArrayList;
+    }
+
+    public boolean isIdTaken(String id){
+        for ( int i = 0; i < yardsArrayList.size(); i++ ){
+            if (yardsArrayList.get(i).id.equals(id)) { return true; }
+        }
+        return false;
+    }
+
+    public ArrayList<Yards> getSearchRequest(String someData) {
+        ArrayList<Yards> yardsTemp = new ArrayList<>();
+        Yards yards;
+        for ( int i = 0; i < yardsArrayList.size(); i++ ){
+            yards = yardsArrayList.get(i);
+            if ( yards.getId().equals(someData)
+                    || yards.getName().equals(someData)
+                    || yards.getDesc().equals(someData) ) {
+                yardsTemp.add(yards);
+            }
+        }
+
+        return yardsTemp;
+
     }
 }

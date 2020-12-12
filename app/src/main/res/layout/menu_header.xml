@@ -25,7 +25,7 @@
         android:layout_height="wrap_content"
         android:text="mob.yard.android@mail.com"
         android:layout_alignParentBottom="true"
-        android:textSize="12dp"
+        android:textSize="14dp"
         />
 
     <ImageView

@@ -63,16 +63,15 @@ public class YardsHomeAdapter extends
                 String id = yardsHomeAdapter.getId();
                 String newId = "";
                 String tempChar = " ";
+                boolean flag = false;
                 for (int i = 0; i < id.length(); i++ ) {
                     tempChar = id.substring(i, i+1);
-                    if (tempChar == " " || tempChar == ":" ) {
+                    if (tempChar.equals(" ") || tempChar.equals(":")) {
                         newId = "";
                     } else {
                         newId += tempChar;
                     }
-
                 }
-                Toast.makeText(v.getContext(), "Id inside the activity" + newId, Toast.LENGTH_LONG);
                 SharedPreferences.Editor editor = infoPref.edit();
                 editor.putString("yard_id", newId );
                 editor.apply();

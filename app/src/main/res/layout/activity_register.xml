@@ -28,6 +28,7 @@
             android:id="@+id/firstname"
             android:layout_marginTop="10dp"
             android:hint="@string/reg_firstname"
+            android:inputType="textPersonName"
             android:maxLines="1"
             android:nextFocusRight="@+id/lastname"
             />
@@ -38,6 +39,7 @@
             android:layout_marginBottom="20dp"
             android:layout_marginTop="10dp"
             android:hint="@string/reg_lastname"
+            android:inputType="textPersonName"
             android:lines="1"
             android:maxLines="1"
             android:nextFocusRight="@+id/username"/>
@@ -48,6 +50,7 @@
             android:id="@+id/username"
             android:layout_marginTop="10dp"
             android:hint="@string/reg_username"
+            android:inputType="textPersonName"
             android:lines="1"
             android:maxLines="1"
             android:nextFocusRight="@+id/email"/>

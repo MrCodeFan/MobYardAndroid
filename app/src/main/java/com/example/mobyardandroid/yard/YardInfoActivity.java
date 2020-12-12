@@ -46,9 +46,11 @@ public class YardInfoActivity extends AppCompatActivity {
                 MODE_PRIVATE
         );
         String yardId = infoPref.getString("yard_id", "");
-        Toast.makeText(YardInfoActivity.this, yardId, Toast.LENGTH_SHORT).show();
+        Toast.makeText(YardInfoActivity.this, "\""+yardId+"\"", Toast.LENGTH_SHORT).show();
         yardsData = new YardsData(this );
         Yards yards = yardsData.getYard(yardId);
+
+
         if ( ! yards.isExist() ){
             Toast.makeText(YardInfoActivity.this, "Some troubles was detected with this yard!", Toast.LENGTH_SHORT).show();
             // finish();
@@ -57,9 +59,6 @@ public class YardInfoActivity extends AppCompatActivity {
         backIcon = findViewById(R.id.info_back_icon);
         goToEdit = findViewById(R.id.info_edit_btn);
 
-        // mainLinearLayout = findViewById(R.id.yard_id);
-        idLayout = findViewById(R.id.yard_id);
-        nameLayout = findViewById(R.id.yard_name);
         idText = findViewById(R.id.yard_id_data);
         nameText = findViewById(R.id.yard_name_data);
         longitudeText = findViewById(R.id.yard_longitude_data);
