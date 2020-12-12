@@ -31,12 +31,15 @@ public class YardsData {
     RandomString randS;
     String appDirYards;
 
+    Context context;
 
+
+    @RequiresApi(api = Build.VERSION_CODES.O)
     public YardsData() {
         randS = new RandomString();
         //yardsList = new List<Yards>();
         yardsArrayList = new ArrayList<Yards>();
-        // load();
+        load();
 
         String[] tokens = { "AFLMSFML544SGGSSG54G4SVD", "FEA4EF8GR61WG51W4G5", "BR8S8TE49EVVW6181BTRE4", "BR8S8TE49EVVW6181B1548"};
         for (int i = 0; i < 3; i++){
@@ -127,8 +130,9 @@ public class YardsData {
     }
 
     public String formJsonFromYard(Yards yards){
-
-        return "";
+        String longitudeString = String.valueOf(yards.longitude);
+        String latitudeString = String.valueOf(yards.latitude);
+        return yards.id + "," + yards.name + "," + yards.desc + "," + longitudeString + "," + latitudeString;
     }
 
     public void writeFile(String dir, String info) throws IOException {
@@ -144,10 +148,11 @@ public class YardsData {
 
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     public void load(){
-        /*
-        getDir( "yards", MODE_PRIVATE );
-        appDirYards = getDir( "yards", MODE_PRIVATE );
+
+        context.getDir( "yards", Context.MODE_PRIVATE );
+        appDirYards = context.getDir( "yards", Context.MODE_PRIVATE ).getAbsolutePath();
         File dir = new File(appDirYards);
         File[] arrFiles = dir.listFiles();
         List<File> lst = Arrays.asList(arrFiles);
@@ -160,10 +165,7 @@ public class YardsData {
             String fileName = tempFile.getName();
             Yards yard = getYardByFile(fileName);
             yardsList.add(yard);
-
         }
-
-        */
     }
 
     public List<Yards> getListYards(){
