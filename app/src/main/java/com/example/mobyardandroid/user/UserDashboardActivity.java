@@ -148,7 +148,11 @@ public class UserDashboardActivity extends AppCompatActivity
                 if (id == R.id.nav_home) {
                     successful = true;
                 } else if (id == R.id.nav_add) {
-
+                    successful = true;
+                    startActivity(new Intent(
+                            UserDashboardActivity.this,
+                            CreateYardActivity.class
+                    ));
                 } else if (id == R.id.nav_login) {
                     successful = true;
                     if ( auth.getCurrentUser() != null ) {
@@ -198,8 +202,6 @@ public class UserDashboardActivity extends AppCompatActivity
                 return successful;
             }
         });
-
-
 
 
     }

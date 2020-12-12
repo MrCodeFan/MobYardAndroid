@@ -82,7 +82,7 @@ public class CreateYardActivity extends AppCompatActivity {
                             0.0, 0.0
                     );
 
-                    startActivity(new Intent(CreateYardActivity.this, UserDashboardActivity.class));
+                    startActivity(new Intent(CreateYardActivity.this, MainYardActivity.class));
                     finish();
                 }
             }
