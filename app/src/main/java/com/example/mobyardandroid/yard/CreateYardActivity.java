@@ -57,25 +57,34 @@ public class CreateYardActivity extends AppCompatActivity {
                 descYard = findViewById(R.id.yard_create_desc);
 
                 idYard = randS.gen(15);
-                while(yardsData.isIdTaken(idYard)){
+                while ( yardsData.isIdTaken(idYard) ){
                     idYard = randS.gen(15);
                 }
 
                 yardsData = new YardsData(getBaseContext());
-                Double.parseDouble(heightYard.getText().toString());
+                Double.parseDouble( heightYard.getText().toString() );
 
 
-                yardsData.add(
-                        idYard,
-                        nameYard.getText().toString(),
-                        descYard.getText().toString(),
-                        Double.parseDouble(weightYard.getText().toString()),
-                        Double.parseDouble(heightYard.getText().toString()),
-                        0.0, 0.0
-                );
+                String yardName = nameYard.getText().toString();
+                String yardDesc = descYard.getText().toString();
+                Double yardWeight = Double.parseDouble(weightYard.getText().toString());
+                Double yardHeight = Double.parseDouble(heightYard.getText().toString());
 
-                startActivity(new Intent(CreateYardActivity.this, UserDashboardActivity.class));
-                finish();
+                if (yardName.isEmpty()){
+
+                } else if (yardWeight < 0 || yardWeight > 200) {
+
+                } else if (yardHeight < 0 || yardHeight > 200) {
+
+                } else {
+                    yardsData.add(
+                            idYard, yardName, yardDesc, yardWeight, yardHeight,
+                            0.0, 0.0
+                    );
+
+                    startActivity(new Intent(CreateYardActivity.this, UserDashboardActivity.class));
+                    finish();
+                }
             }
         });
 

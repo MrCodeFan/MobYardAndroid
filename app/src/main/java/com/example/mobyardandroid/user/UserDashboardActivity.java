@@ -125,7 +125,6 @@ public class UserDashboardActivity extends AppCompatActivity
                         UserDashboardActivity.this,
                         CreateYardActivity.class
                 ));
-                finish();
             }
         });
 
