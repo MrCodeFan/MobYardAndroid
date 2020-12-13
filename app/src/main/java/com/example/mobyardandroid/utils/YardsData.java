@@ -210,10 +210,12 @@ public class YardsData {
         Yards yards;
         for ( int i = 0; i < yardsArrayList.size(); i++ ){
             yards = yardsArrayList.get(i);
-            if ( yards.getId().equals(someData)
-                    || yards.getName().equals(someData)
-                    || yards.getDesc().equals(someData) ) {
+            if ( yards.getId().contains(someData)
+                    || yards.getName().contains(someData)
+                    || yards.getDesc().contains(someData) ) {
                 yardsTemp.add(yards);
+            } else if (0==0) {
+
             }
         }
 
