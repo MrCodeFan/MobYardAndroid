@@ -213,7 +213,9 @@ public class YardsData {
             if ( yards.getId().contains(someData)
                     || yards.getName().contains(someData)
                     || yards.getDesc().contains(someData) ) {
-                yardsTemp.add(yards);
+                if (!someData.isEmpty()) {
+                    yardsTemp.add(yards);
+                }
             } else if (0==0) {
 
             }

@@ -11,7 +11,9 @@ import androidx.viewpager.widget.ViewPager;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.text.Editable;
 import android.text.Layout;
+import android.text.TextWatcher;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
@@ -182,7 +184,10 @@ public class UserDashboardActivity extends AppCompatActivity
                             CreateYardActivity.class
                     ));
                 } else if (id == R.id.nav_profile) {
-
+                    startActivity(new Intent(
+                            UserDashboardActivity.this,
+                            ProfileActivity.class
+                    ));
                 } else if (id == R.id.nav_logout) {
                     successful = true;
                     auth.signOut();
@@ -219,6 +224,24 @@ public class UserDashboardActivity extends AppCompatActivity
             }
         });
 
+
+        EditText et = findViewById(R.id.search_edit_text);
+        et.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                doSearch();
+            }
+        });
 
     }
 
@@ -371,8 +394,7 @@ public class UserDashboardActivity extends AppCompatActivity
 
 
     private void startSearch(){
-        recyclerYardsLayout.setAnimation(animationDisappear);
-
+        Toast.makeText(UserDashboardActivity.this, "Start search", Toast.LENGTH_SHORT);
         findViewById(R.id.search_edit_text).setVisibility(View.VISIBLE);
         findViewById(R.id.search_text).setVisibility(View.INVISIBLE);
         findViewById(R.id.cancel_icon).setVisibility(View.VISIBLE);
@@ -389,8 +411,9 @@ public class UserDashboardActivity extends AppCompatActivity
         String searchText = searchEditText.getText().toString();
 
         yardsArrayList = yardsData.getSearchRequest(searchText);
-        recyclerYards();
-
+        if (yardsArrayList.size()>0 || true){
+            recyclerYards();
+        }
     }
 
     private void stopSearch(){

@@ -91,7 +91,14 @@
 
     <string name="share_app">Hi!\n\nMobile Yard is a convenient app for improving your yard. Because of it, there are great improvements in my yard.\n\nDownload it for free https://github.com/MrCodeFan/MobYardAndroid.git</string>
 
-
+    <!-- Profile -->
+    <string name="profile_header">User Profile</string>
+    <string name="profile_id">User ID</string>
+    <string name="profile_firstname">Firstname</string>
+    <string name="profile_lastname">Lastname</string>
+    <string name="profile_mail">E-mail</string>
+    <string name="profile_username">Username</string>
+    <string name="profile_desc">Description of user</string>
 
 
 </resources>
