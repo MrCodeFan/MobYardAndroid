@@ -68,7 +68,7 @@
             <RelativeLayout
                 android:id="@+id/find_field"
                 android:layout_width="match_parent"
-                android:layout_height="40dp"
+                android:layout_height="@dimen/search_field"
 
                 android:layout_below="@+id/dashboard_header"
                 android:background="@color/white"

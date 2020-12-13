@@ -1,5 +1,12 @@
 <resources>
     <dimen name="yard_info_title">90dp</dimen>
+
     <dimen name="profile_title">90dp</dimen>
+
+    <!--UserBoard -->
+    <dimen name="search_field">45dp</dimen>
+    <dimen name="padding_yard_layout">15dp</dimen>
+
+
 
 </resources>
