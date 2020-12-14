@@ -47,7 +47,7 @@ public class YardsData {
         for (int i = 0; i < 3; i++){
             Yards yards = new Yards();
             yards.exist = true;
-            yards.name = String.format("Yard №%d", i + 1 );
+            yards.name = String.format("Test Yard №%d", i + 1 );
             yards.id = tokens[i];
             yardsArrayList.add(yards);
         }

@@ -8,6 +8,7 @@ import android.text.Layout;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.example.mobyardandroid.R;
 import com.example.mobyardandroid.user.UserDashboardActivity;
@@ -23,6 +24,7 @@ public class CreateYardActivity extends AppCompatActivity {
 
     RandomString randS;
 
+    TextView idText;
     MaterialEditText nameYard, weightYard, heightYard, descYard;
     String idYard;
 
@@ -35,8 +37,10 @@ public class CreateYardActivity extends AppCompatActivity {
 
         backIcon = findViewById(R.id.yard_create_back);
         yardCreate = findViewById(R.id.yard_create_btn);
+        idText = findViewById(R.id.yard_create_id);
 
 
+        yardsData = new YardsData(getBaseContext());
 
         backIcon.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -56,14 +60,7 @@ public class CreateYardActivity extends AppCompatActivity {
                 heightYard = findViewById(R.id.yard_create_height);
                 descYard = findViewById(R.id.yard_create_desc);
 
-                idYard = randS.gen(15);
-                while ( yardsData.isIdTaken(idYard) ){
-                    idYard = randS.gen(15);
-                }
-
-                yardsData = new YardsData(getBaseContext());
                 Double.parseDouble( heightYard.getText().toString() );
-
 
                 String yardName = nameYard.getText().toString();
                 String yardDesc = descYard.getText().toString();
@@ -72,9 +69,9 @@ public class CreateYardActivity extends AppCompatActivity {
 
                 if (yardName.isEmpty()){
 
-                } else if (yardWeight < 0 || yardWeight > 200) {
+                } else if ( (yardWeight < 0) || (yardWeight > 200) ) {
 
-                } else if (yardHeight < 0 || yardHeight > 200) {
+                } else if ( (yardHeight < 0) || (yardHeight > 200) ) {
 
                 } else {
                     yardsData.add(
@@ -90,6 +87,18 @@ public class CreateYardActivity extends AppCompatActivity {
 
 
 
+
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        idYard = randS.gen(15);
+        while ( yardsData.isIdTaken(idYard) ){
+            idYard = randS.gen(15);
+        }
+        idText.setText(idYard);
 
     }
 }

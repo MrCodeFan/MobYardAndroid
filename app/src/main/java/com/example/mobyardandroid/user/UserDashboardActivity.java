@@ -72,6 +72,8 @@ public class UserDashboardActivity extends AppCompatActivity
     // Animation
     Animation animationDisappear, animationAppear;
 
+    EditText searchEditText;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -87,8 +89,6 @@ public class UserDashboardActivity extends AppCompatActivity
         yardsData = new YardsData(this );
         // yardsList = yardsData.getListYards();
         yardsArrayList = yardsData.getArrayListYards();
-
-        settings = new Settings(this);
 
 
         // Hooks
@@ -111,14 +111,6 @@ public class UserDashboardActivity extends AppCompatActivity
         drawerLayout = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.nav_view);
 
-        // Changing the header menu ( Name and E-mail )
-        View headerView = navigationView.getHeaderView(0);
-        TextView nameText = headerView.findViewById(R.id.account_name);
-        TextView mailText = headerView.findViewById(R.id.account_mail);
-
-
-        nameText.setText(settings.getFirstLastName());
-        mailText.setText(settings.getMail());
 
         navigationDrawer();
 
@@ -144,7 +136,6 @@ public class UserDashboardActivity extends AppCompatActivity
             @Override
             public void onClick(View v) {
                 startSearch();
-
             }
         });
 
@@ -168,6 +159,7 @@ public class UserDashboardActivity extends AppCompatActivity
                 boolean successful = false;
                 int id = item.getItemId();
 
+
                 if (id == R.id.nav_home) {
                     successful = true;
                 } else if (id == R.id.nav_add) {
@@ -176,6 +168,9 @@ public class UserDashboardActivity extends AppCompatActivity
                             UserDashboardActivity.this,
                             CreateYardActivity.class
                     ));
+                } else if (id == R.id.nav_search) {
+                    successful = true;
+                    startSearch();
                 } else if (id == R.id.nav_profile) {
                     successful = true;
                     startActivity(new Intent(
@@ -219,8 +214,8 @@ public class UserDashboardActivity extends AppCompatActivity
         });
 
 
-        EditText et = findViewById(R.id.search_edit_text);
-        et.addTextChangedListener(new TextWatcher() {
+        searchEditText = findViewById(R.id.search_edit_text);
+        searchEditText.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
@@ -251,7 +246,7 @@ public class UserDashboardActivity extends AppCompatActivity
         RSY.setVisibility(View.VISIBLE);
         RSY.setClickable(true);
         RY.setVisibility(View.INVISIBLE);
-        RSY.setClickable(false);
+        RY.setClickable(false);
 
         recyclerYards = RSY;
     }
@@ -267,7 +262,7 @@ public class UserDashboardActivity extends AppCompatActivity
         RSY.setClickable(false);
 
         RY.setVisibility(View.VISIBLE);
-        RSY.setClickable(true);
+        RY.setClickable(true);
 
         recyclerYards = RY;
     }
@@ -339,10 +334,19 @@ public class UserDashboardActivity extends AppCompatActivity
                 MODE_PRIVATE
         );
 
+        settings = new Settings(this);
 
-        setRecyclerYard();
-        recyclerYards();
+        // Changing the header menu ( Name and E-mail )
+        View headerView = navigationView.getHeaderView(0);
+        TextView nameText = headerView.findViewById(R.id.account_name);
+        TextView mailText = headerView.findViewById(R.id.account_mail);
+
+
+        nameText.setText(settings.getFirstLastName());
+        mailText.setText(settings.getMail());
+
         stopSearch();
+        recyclerYards();
 
     }
 
@@ -390,13 +394,14 @@ public class UserDashboardActivity extends AppCompatActivity
 
 
     private void startSearch(){
-        Toast.makeText(UserDashboardActivity.this, "Start search", Toast.LENGTH_SHORT);
         findViewById(R.id.search_edit_text).setVisibility(View.VISIBLE);
         findViewById(R.id.search_text).setVisibility(View.INVISIBLE);
         findViewById(R.id.cancel_icon).setVisibility(View.VISIBLE);
         findViewById(R.id.cancel_icon).setClickable(true);
         findViewById(R.id.search_icon).setClickable(true);
         findViewById(R.id.find_field).setClickable(false);
+
+        //findViewById(R.id.search_edit_text).addFocusables(new ArrayList<>(), );
 
         setSearchRecyclerYard();
 
@@ -413,7 +418,9 @@ public class UserDashboardActivity extends AppCompatActivity
     }
 
     private void stopSearch(){
-        findViewById(R.id.search_edit_text).setVisibility(View.INVISIBLE);
+        EditText editText = findViewById(R.id.search_edit_text);
+        editText.setVisibility(View.INVISIBLE);
+        editText.setText("");
         findViewById(R.id.search_text).setVisibility(View.VISIBLE);
 
         findViewById(R.id.cancel_icon).setVisibility(View.INVISIBLE);
