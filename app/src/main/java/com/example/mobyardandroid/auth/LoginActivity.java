@@ -3,6 +3,7 @@ package com.example.mobyardandroid.auth;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -16,6 +17,9 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.rengwuxian.materialedittext.MaterialEditText;
 
 import com.example.mobyardandroid.R;
@@ -57,6 +61,24 @@ public class LoginActivity extends AppCompatActivity {
                                 @Override
                                 public void onComplete(@NonNull Task<AuthResult> task) {
                                     if (task.isSuccessful()){
+
+                                        FirebaseUser firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
+
+
+                                        DatabaseReference reference = FirebaseDatabase
+                                                .getInstance()
+                                                .getReference("Users")
+                                                .child( firebaseUser.getUid() );
+
+
+                                        saveUserData( FirebaseDatabase.getInstance()
+                                                .getReference("Users")
+                                                .child( firebaseUser.getUid()
+                                                )
+                                        );
+
+
+
                                         Intent intent = new Intent(
                                                 LoginActivity.this,
                                                 UserDashboardActivity.class);
@@ -75,5 +97,22 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    private void saveUserData(DatabaseReference user) {
+        String firstname = user.child("Firstname").getKey();
+        String lastname = user.child("Lastname").getKey();
+        String id = user.child("id").getKey();
+        String username = user.child("username").;
+        SharedPreferences.Editor editor = getSharedPreferences(
+                "PersonalData",
+                Context.MODE_PRIVATE
+        ).edit();
+        editor.putString("firstname", firstname);
+        editor.putString("lastname", lastname);
+        editor.putString("id", id);
+        editor.putString("username", username);
+        editor.putString("mail", email.getText().toString());
+        editor.apply();
     }
 }

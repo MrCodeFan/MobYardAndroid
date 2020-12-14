@@ -102,11 +102,16 @@ public class RegisterActivity extends AppCompatActivity {
                                     .child(userId);
 
                             HashMap<String, String> hashMap = new HashMap<>();
+                            int regTime = (int) (System.currentTimeMillis() / 1000);
                             hashMap.put("id", userId);
                             hashMap.put("username", txt_username);
                             hashMap.put("imageUrl", "default");
                             hashMap.put("Firstname", txt_firstname);
                             hashMap.put("Lastname", txt_lastname);
+
+
+                            HashMap<String, Integer> hashMapInt = new HashMap<>();
+                            hashMapInt.put("regTime", regTime);
 
                             reference.setValue(hashMap).addOnCompleteListener(new OnCompleteListener<Void>() {
                                 @Override
@@ -116,12 +121,14 @@ public class RegisterActivity extends AppCompatActivity {
                                                 "PersonalData",
                                                 MODE_PRIVATE
                                         );
+                                        reference.setValue(hashMapInt);
 
                                         SharedPreferences.Editor editor = RegisterPrefs.edit();
                                         editor.putString("mail", txt_email );
                                         editor.putString("username", txt_username );
                                         editor.putString("firstname", txt_firstname );
                                         editor.putString("lastname", txt_lastname );
+                                        editor.putInt("regTime", regTime );
                                         editor.apply();
 
 
@@ -131,6 +138,7 @@ public class RegisterActivity extends AppCompatActivity {
                                     }
                                 }
                             });
+
 
                         } else {
                             Toast.makeText(

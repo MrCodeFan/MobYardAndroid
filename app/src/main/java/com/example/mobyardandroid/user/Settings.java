@@ -9,7 +9,7 @@ public class Settings {
     private SharedPreferences PersonalData;
     private SharedPreferences.Editor PersonalDataEditor;
     private boolean editSheared = false;
-    String firstname, lastname;
+    String id, firstname, lastname;
     String mail, username;
     String desc;
     ArrayList<String> yards, yardsOwner;
@@ -17,6 +17,8 @@ public class Settings {
 
     boolean isMailVerified;
     boolean isPublic;
+
+    boolean realSearch = true;
 
     public Settings(String firstname, String lastname, String mail, String username) {
         this.firstname = firstname;
@@ -57,6 +59,7 @@ public class Settings {
         lastname = PersonalData.getString("lastname", "defLastname");
         username = PersonalData.getString("username", "defUsername");
         mail = PersonalData.getString("mail", "defMail");
+        id = PersonalData.getString("id", "defId");
     }
 
 
@@ -115,7 +118,9 @@ public class Settings {
         }
     }
 
-
+    public String getFirstLastName() {
+        return firstname + " " + lastname;
+    }
     public String getFirstname() {
         return firstname;
     }
@@ -134,4 +139,11 @@ public class Settings {
     public String getDesc(){
         return desc;
     }
+    public boolean getRealSearch(){ return realSearch; }
+
+
+    public boolean isUsernameValid(String username){
+        return true;
+    }
+
 }

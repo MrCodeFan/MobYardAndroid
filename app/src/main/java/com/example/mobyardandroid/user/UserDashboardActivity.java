@@ -50,8 +50,8 @@ public class UserDashboardActivity extends AppCompatActivity
     FirebaseAuth auth;
 
     // User`s data
-    SharedPreferences YardsPrefs, PersPrefs, YardInfoPrefs;
-    String email, userId, username, lastName, firstName;
+    Settings settings;
+    SharedPreferences YardsPrefs, YardInfoPrefs;
 
     // Yard`s data
     RecyclerView recyclerYards;
@@ -88,16 +88,8 @@ public class UserDashboardActivity extends AppCompatActivity
         // yardsList = yardsData.getListYards();
         yardsArrayList = yardsData.getArrayListYards();
 
-        PersPrefs = getSharedPreferences(
-                "PersonalData",
-                MODE_PRIVATE
-        );
+        settings = new Settings(this);
 
-        email = PersPrefs.getString("mail", "");
-        userId = PersPrefs.getString("id", "");
-        username = PersPrefs.getString("username", "");
-        lastName = PersPrefs.getString("lastname", "");
-        firstName = PersPrefs.getString("firstname", "");
 
         // Hooks
         recyclerYards = findViewById(R.id.recycler_yards);
@@ -124,8 +116,9 @@ public class UserDashboardActivity extends AppCompatActivity
         TextView nameText = headerView.findViewById(R.id.account_name);
         TextView mailText = headerView.findViewById(R.id.account_mail);
 
-        nameText.setText(firstName + " " + lastName);
-        mailText.setText(email);
+
+        nameText.setText(settings.getFirstLastName());
+        mailText.setText(settings.getMail());
 
         navigationDrawer();
 
@@ -184,6 +177,7 @@ public class UserDashboardActivity extends AppCompatActivity
                             CreateYardActivity.class
                     ));
                 } else if (id == R.id.nav_profile) {
+                    successful = true;
                     startActivity(new Intent(
                             UserDashboardActivity.this,
                             ProfileActivity.class
@@ -239,7 +233,9 @@ public class UserDashboardActivity extends AppCompatActivity
 
             @Override
             public void afterTextChanged(Editable s) {
-                doSearch();
+                if (settings.getRealSearch()) {
+                    doSearch();
+                }
             }
         });
 
