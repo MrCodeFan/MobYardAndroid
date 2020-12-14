@@ -103,7 +103,7 @@ public class LoginActivity extends AppCompatActivity {
         String firstname = user.child("Firstname").getKey();
         String lastname = user.child("Lastname").getKey();
         String id = user.child("id").getKey();
-        String username = user.child("username").;
+        String username = user.child("username").toString();
         SharedPreferences.Editor editor = getSharedPreferences(
                 "PersonalData",
                 Context.MODE_PRIVATE
